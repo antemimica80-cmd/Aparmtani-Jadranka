@@ -7,19 +7,19 @@
   <meta name="description" content="Family-run apartments in Mimice on the Dalmatian coast, Croatia. Sea views, quiet location, walking distance to the beach.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Mulish:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
   <header class="site-header">
     <nav class="nav">
-      <a href="index.html" class="nav-brand"><span class="wave">~</span> Apartmani Jadranka</a>
+      <a href="index.html" class="nav-brand">Apartmani Jadranka</a>
       <ul class="nav-links">
         <li><a href="index.html" class="active">Home</a></li>
         <li><a href="pages/stan.html">Stan</a></li>
         <li><a href="pages/istok.html">Istok</a></li>
-        <li><a href="index.html#contact">Contact &amp; Availability</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
       </ul>
       <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -30,53 +30,56 @@
   <!-- ============ HERO ============ -->
   <section class="hero">
     <div class="hero-content">
-      <p class="hero-eyebrow">Mimice · Dalmatian Coast · Croatia</p>
+      <p class="hero-eyebrow">Mimice · Dalmatian Coast</p>
       <h1>Apartmani Jadranka</h1>
-      <p>A family-run home away from home on the Adriatic. Wake up to sea air, stroll to the beach in minutes, and unwind on our terrace with views of the water.</p>
+      <p>Family-run apartments on the Adriatic, steps from the sea.</p>
       <div class="hero-actions">
-        <a href="#units" class="btn btn-primary">Explore Our Apartments</a>
-        <a href="index.html#contact" class="btn btn-secondary">Check Availability</a>
+        <a href="#units" class="btn btn-secondary">Explore</a>
+        <a href="index.html#contact" class="btn btn-primary">Check Availability</a>
       </div>
     </div>
-    <div class="hero-wave">
-      <svg viewBox="0 0 1440 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <path fill="#f6f1e7" d="M0,40 C240,90 480,0 720,30 C960,60 1200,100 1440,50 L1440,100 L0,100 Z"></path>
-      </svg>
-    </div>
+    <div class="scroll-cue"></div>
   </section>
 
   <!-- ============ INTRO / UNITS OVERVIEW ============ -->
   <section id="units" class="units-overview">
     <div class="container">
-      <h2 class="section-title">Two Apartments, One Warm Welcome</h2>
-      <p class="section-subtitle">Apartmani Jadranka has been welcoming guests to Mimice for years. Our two independent units, "Stan" and "Istok," each offer a comfortable, self-contained base for your Dalmatian getaway — just a short walk from the sea.</p>
+      <div class="section-header reveal">
+        <span class="eyebrow">Our Apartments</span>
+        <h2 class="section-title">Two Homes by the Sea</h2>
+        <p class="section-subtitle">Independent, self-contained apartments — each with its own character, both a short walk from the water.</p>
+      </div>
 
       <div class="units-grid">
-        <article class="unit-card">
-          <div class="unit-card-photo">Photo of "Stan" coming soon</div>
+        <article class="unit-card reveal">
+          <a href="pages/stan.html" class="unit-card-photo">
+            <span class="unit-card-photo-label">Photo coming soon</span>
+          </a>
           <div class="unit-card-body">
             <h3>Stan</h3>
-            <p>A cozy, well-appointed apartment ideal for couples or small families, with a bright living space and private terrace.</p>
+            <p>Cozy and light-filled, with a private terrace — ideal for couples and small families.</p>
             <div class="unit-card-meta">
-              <span>Sleeps 2–4</span>
+              <span>Sleeps 4</span>
+              <span class="dot"></span>
               <span>Terrace</span>
-              <span>Self-catering</span>
             </div>
-            <a href="pages/stan.html" class="btn btn-outline">View Stan &rarr;</a>
+            <a href="pages/stan.html" class="text-link">Discover Stan &rarr;</a>
           </div>
         </article>
 
-        <article class="unit-card">
-          <div class="unit-card-photo istok">Photo of "Istok" coming soon</div>
+        <article class="unit-card reveal">
+          <a href="pages/istok.html" class="unit-card-photo istok">
+            <span class="unit-card-photo-label">Photo coming soon</span>
+          </a>
           <div class="unit-card-body">
             <h3>Istok</h3>
-            <p>Our sunniest unit facing the morning light, with extra space for larger groups and easy access to parking.</p>
+            <p>Our sunniest, most spacious unit — bright morning light and room for the whole family.</p>
             <div class="unit-card-meta">
-              <span>Sleeps 4–6</span>
-              <span>Sea glimpse</span>
-              <span>Self-catering</span>
+              <span>Sleeps 6</span>
+              <span class="dot"></span>
+              <span>Balcony</span>
             </div>
-            <a href="pages/istok.html" class="btn btn-outline">View Istok &rarr;</a>
+            <a href="pages/istok.html" class="text-link">Discover Istok &rarr;</a>
           </div>
         </article>
       </div>
@@ -86,29 +89,31 @@
   <!-- ============ WHY STAY WITH US ============ -->
   <section class="why-stay">
     <div class="container">
-      <h2 class="section-title">Why Stay With Us</h2>
-      <p class="section-subtitle">A quieter, more personal alternative to big hotels — run by our family, for yours.</p>
+      <div class="section-header reveal">
+        <span class="eyebrow">The Experience</span>
+        <h2 class="section-title">Why Stay With Us</h2>
+      </div>
 
-      <div class="features-grid">
+      <div class="features-grid reveal">
         <div class="feature-card">
-          <div class="feature-icon">🌊</div>
+          <div class="feature-icon">01</div>
           <h3>Sea Views</h3>
-          <p>Enjoy the Adriatic from our terraces, just a short walk from the water's edge.</p>
+          <p>A short walk to the water's edge.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">🌿</div>
+          <div class="feature-icon">02</div>
           <h3>Quiet Location</h3>
-          <p>Tucked into peaceful Mimice, away from crowds, but close to everything you need.</p>
+          <p>Peaceful Mimice, away from the crowds.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">🍳</div>
+          <div class="feature-icon">03</div>
           <h3>Self-Catering</h3>
-          <p>Fully equipped kitchens so you can cook, relax, and enjoy home comforts at your own pace.</p>
+          <p>Fully equipped kitchens, home comforts.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">🤝</div>
+          <div class="feature-icon">04</div>
           <h3>Local Hospitality</h3>
-          <p>Personal recommendations and a warm welcome from a family that knows the coast.</p>
+          <p>A warm welcome from a family that knows the coast.</p>
         </div>
       </div>
     </div>
@@ -117,10 +122,13 @@
   <!-- ============ CONTACT / AVAILABILITY ============ -->
   <section id="contact" class="contact-section">
     <div class="container">
-      <h2 class="section-title">Availability &amp; Contact</h2>
-      <p class="section-subtitle">Send us your dates and we'll get back to you with availability and rates.</p>
+      <div class="section-header reveal">
+        <span class="eyebrow">Get in Touch</span>
+        <h2 class="section-title">Availability &amp; Contact</h2>
+        <p class="section-subtitle">Send us your dates and we'll get back to you with availability and rates.</p>
+      </div>
 
-      <div class="contact-grid">
+      <div class="contact-grid reveal">
         <form id="inquiry-form" class="contact-form" novalidate>
           <div class="form-row">
             <div class="form-group">
@@ -166,15 +174,15 @@
           <div class="contact-info-card">
             <h3>Direct Contact</h3>
             <div class="contact-detail">
-              <span class="icon">✉️</span>
+              <span class="label">Email</span>
               <span><!-- Replace with real email --> info@apartmani-jadranka.example</span>
             </div>
             <div class="contact-detail">
-              <span class="icon">📞</span>
+              <span class="label">Phone</span>
               <span><!-- Replace with real phone --> +385 91 234 5678</span>
             </div>
             <div class="contact-detail">
-              <span class="icon">📍</span>
+              <span class="label">Location</span>
               <span>Mimice, Dalmatian Coast, Croatia</span>
             </div>
           </div>
