@@ -1,8 +1,10 @@
 // Apartmani Jadranka — shared site behavior
-// Mobile nav toggle + inquiry form handling (no backend yet).
+// Mobile nav toggle, scroll effects, and inquiry form handling (no backend yet).
 
 document.addEventListener('DOMContentLoaded', function () {
   initNavToggle();
+  initHeaderScroll();
+  initScrollReveal();
   initInquiryForm();
 });
 
@@ -22,6 +24,43 @@ function initNavToggle() {
       toggle.setAttribute('aria-expanded', 'false');
     });
   });
+}
+
+function initHeaderScroll() {
+  var header = document.querySelector('.site-header');
+  if (!header) return;
+
+  function update() {
+    if (window.scrollY > 60) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  }
+
+  update();
+  window.addEventListener('scroll', update, { passive: true });
+}
+
+function initScrollReveal() {
+  var targets = document.querySelectorAll('.reveal');
+  if (!targets.length) return;
+
+  if (!('IntersectionObserver' in window)) {
+    targets.forEach(function (el) { el.classList.add('visible'); });
+    return;
+  }
+
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+
+  targets.forEach(function (el) { observer.observe(el); });
 }
 
 function initInquiryForm() {
