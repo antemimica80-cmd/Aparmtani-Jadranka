@@ -441,13 +441,12 @@ section {
   overflow: hidden;
   position: relative;
   margin-bottom: 28px;
-  /* Placeholder — swap with: background: url('../images/stan-cover.jpg') center/cover; */
-  background: linear-gradient(160deg, #3d879e 0%, var(--color-sea-deep) 100%);
+  background: linear-gradient(180deg, rgba(18, 40, 51, 0) 55%, rgba(18, 40, 51, 0.45) 100%), url('../images/stan-cover.jpg') center/cover no-repeat;
   transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .unit-card-photo.istok {
-  background: linear-gradient(160deg, #8a6a4f 0%, #5e4530 100%);
+  background: linear-gradient(180deg, rgba(18, 40, 51, 0) 55%, rgba(18, 40, 51, 0.45) 100%), url('../images/istok-cover.jpg') center/cover no-repeat;
 }
 
 .unit-card:hover .unit-card-photo {
