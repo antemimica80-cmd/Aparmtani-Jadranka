@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Stan | Apartmani Jadranka, Mimice</title>
-  <meta name="description" content="Stan — a cozy apartment at Apartmani Jadranka in Mimice, Dalmatian coast, Croatia.">
+  <meta name="description" content="Stan — prostrani apartman od 90 m² s panoramskim pogledom na more i velikom terasom. Apartmani Jadranka, Mimice, dalmatinska obala, Hrvatska.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
@@ -16,10 +16,15 @@
     <nav class="nav">
       <a href="../index.html" class="nav-brand">Apartmani Jadranka</a>
       <ul class="nav-links">
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="stan.html" class="active">Stan</a></li>
-        <li><a href="istok.html">Istok</a></li>
-        <li><a href="../index.html#contact">Contact</a></li>
+        <li><a href="../index.html" data-i18n="nav.home">Home</a></li>
+        <li><a href="stan.html" class="active" data-i18n="nav.stan">Stan</a></li>
+        <li><a href="istok.html" data-i18n="nav.istok">Istok</a></li>
+        <li><a href="../index.html#contact" data-i18n="nav.contact">Contact</a></li>
+        <li class="lang-switch">
+          <button type="button" data-lang-btn="hr">HR</button>
+          <span aria-hidden="true">/</span>
+          <button type="button" data-lang-btn="en">EN</button>
+        </li>
       </ul>
       <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -30,9 +35,9 @@
   <!-- ============ UNIT HERO ============ -->
   <section class="unit-hero-page">
     <div class="container">
-      <p class="breadcrumb"><a href="../index.html">Home</a> / Stan</p>
+      <p class="breadcrumb"><a href="../index.html" data-i18n="stan.breadcrumb">Home</a> / Stan</p>
       <h1>Stan</h1>
-      <p class="tagline">A cozy, light-filled apartment with a private terrace.</p>
+      <p class="tagline" data-i18n="stan.tagline">Panoramic sea views and a spacious terrace.</p>
     </div>
   </section>
 
@@ -40,11 +45,11 @@
   <section class="container reveal" style="padding-bottom: 0;">
     <div class="gallery-grid">
       <!-- Swap each placeholder's background with a real photo in css/style.css or inline style="background:url('../images/your-photo.jpg') center/cover no-repeat;" -->
-      <div class="gallery-item"><span>Living room</span></div>
-      <div class="gallery-item"><span>Bedroom</span></div>
-      <div class="gallery-item"><span>Kitchen</span></div>
-      <div class="gallery-item"><span>Terrace</span></div>
-      <div class="gallery-item"><span>Bathroom</span></div>
+      <div class="gallery-item"><span data-i18n="stan.gallery.living">Living room</span></div>
+      <div class="gallery-item"><span data-i18n="stan.gallery.bedroom">Bedroom</span></div>
+      <div class="gallery-item"><span data-i18n="stan.gallery.kitchen">Kitchen</span></div>
+      <div class="gallery-item"><span data-i18n="stan.gallery.terrace">Terrace</span></div>
+      <div class="gallery-item"><span data-i18n="stan.gallery.bathroom">Bathroom</span></div>
     </div>
   </section>
 
@@ -54,35 +59,155 @@
       <div class="unit-details-grid">
         <div class="unit-description reveal">
           <span class="eyebrow">Stan</span>
-          <h2>A Home Away From Home</h2>
-          <span class="sleeps-badge">Sleeps up to 4</span>
-          <p>
-            <!-- Placeholder description — edit freely -->
-            A comfortable open living area, fully equipped kitchen, and a private terrace for morning coffee
-            in the sea breeze — an easy walk to the beach and to local restaurants in Mimice.
+          <h2 data-i18n="stan.about_title">Space, Quiet, and a View You'll Remember</h2>
+          <span class="sleeps-badge" data-i18n="stan.sleeps">4 guests · 2 bedrooms · 2 bathrooms</span>
+          <p data-i18n="stan.desc_p1">
+            Set on the second floor of a family house, this spacious 90 m² apartment offers comfort, privacy,
+            and an unforgettable view. The large southwest-facing terrace (about 50 m²) is perfect for outdoor
+            dining and soaking up the Dalmatian sun.
           </p>
-          <p>
-            One bedroom with a double bed, plus a sofa bed in the living room — flexible for two to four guests.
+          <p data-i18n="stan.desc_p2">
+            The apartment has two bedrooms — one with a double bed, an extra bed, a private bathroom, and
+            terrace access, and another facing the pine trees for quiet, cool nights — two bathrooms, a fully
+            equipped kitchen, and a bright open living room looking out over the Adriatic Sea, the islands of
+            Brač and Hvar, the Pelješac peninsula, and Mount Biokovo. Set in a quiet area, just 170 meters from
+            the sea.
           </p>
 
-          <span class="amenities-heading">Amenities</span>
-          <ul class="amenities-list">
-            <li>Fully equipped kitchen</li>
-            <li>Free WiFi</li>
-            <li>Private parking</li>
-            <li>Air conditioning</li>
-            <li>Private terrace</li>
-            <li>Washing machine</li>
-            <li>Flat-screen TV</li>
-            <li>Bed linens &amp; towels included</li>
-          </ul>
+          <span class="amenities-heading" data-i18n="stan.amenities_heading">Amenities</span>
+
+          <div class="amenities-categories">
+            <div class="amenity-category">
+              <h4 class="amenity-category-title" data-i18n="stan.cat.kitchen">Kitchen</h4>
+              <ul class="amenities-list">
+                <li data-i18n="stan.cat.kitchen.1">Fully equipped kitchen</li>
+                <li data-i18n="stan.cat.kitchen.2">Dishwasher</li>
+                <li data-i18n="stan.cat.kitchen.3">Stove</li>
+                <li data-i18n="stan.cat.kitchen.4">Oven</li>
+                <li data-i18n="stan.cat.kitchen.5">Coffee maker</li>
+                <li data-i18n="stan.cat.kitchen.6">Refrigerator</li>
+                <li data-i18n="stan.cat.kitchen.7">Microwave</li>
+                <li data-i18n="stan.cat.kitchen.8">Basic cooking essentials</li>
+              </ul>
+            </div>
+
+            <div class="amenity-category">
+              <h4 class="amenity-category-title" data-i18n="stan.cat.bathroom">Bathroom</h4>
+              <ul class="amenities-list">
+                <li data-i18n="stan.cat.bathroom.1">Hair dryer</li>
+                <li data-i18n="stan.cat.bathroom.2">Shampoo</li>
+                <li data-i18n="stan.cat.bathroom.3">Hot water</li>
+              </ul>
+            </div>
+
+            <div class="amenity-category">
+              <h4 class="amenity-category-title" data-i18n="stan.cat.bedroom">Bedroom &amp; Linens</h4>
+              <ul class="amenities-list">
+                <li data-i18n="stan.cat.bedroom.1">Washing machine</li>
+                <li data-i18n="stan.cat.bedroom.2">Towels, bed linen, soap, toilet paper</li>
+                <li data-i18n="stan.cat.bedroom.3">Hangers</li>
+                <li data-i18n="stan.cat.bedroom.4">Extra pillows &amp; blankets</li>
+                <li data-i18n="stan.cat.bedroom.5">Iron</li>
+              </ul>
+            </div>
+
+            <div class="amenity-category">
+              <h4 class="amenity-category-title" data-i18n="stan.cat.climate">Heating &amp; Cooling</h4>
+              <ul class="amenities-list">
+                <li data-i18n="stan.cat.climate.1">Air conditioning</li>
+                <li data-i18n="stan.cat.climate.2">Heating</li>
+              </ul>
+            </div>
+
+            <div class="amenity-category">
+              <h4 class="amenity-category-title" data-i18n="stan.cat.entertainment">Entertainment</h4>
+              <ul class="amenities-list">
+                <li data-i18n="stan.cat.entertainment.1">TV with standard cable</li>
+                <li data-i18n="stan.cat.entertainment.2">Books and toys for children</li>
+              </ul>
+            </div>
+
+            <div class="amenity-category">
+              <h4 class="amenity-category-title" data-i18n="stan.cat.internet">Internet</h4>
+              <ul class="amenities-list">
+                <li data-i18n="stan.cat.internet.1">Wi-Fi</li>
+              </ul>
+            </div>
+
+            <div class="amenity-category">
+              <h4 class="amenity-category-title" data-i18n="stan.cat.outdoor">Outdoor</h4>
+              <ul class="amenities-list">
+                <li data-i18n="stan.cat.outdoor.1">Terrace with sea view</li>
+              </ul>
+            </div>
+
+            <div class="amenity-category">
+              <h4 class="amenity-category-title" data-i18n="stan.cat.location">Location</h4>
+              <ul class="amenities-list">
+                <li data-i18n="stan.cat.location.1">Access to nearby beach (170 m)</li>
+              </ul>
+            </div>
+
+            <div class="amenity-category">
+              <h4 class="amenity-category-title" data-i18n="stan.cat.other">Other</h4>
+              <ul class="amenities-list">
+                <li data-i18n="stan.cat.other.1">Free parking on premises</li>
+                <li data-i18n="stan.cat.other.2">Luggage drop-off allowed</li>
+                <li data-i18n="stan.cat.other.3">Long-term stays allowed (28+ nights)</li>
+                <li data-i18n="stan.cat.other.4">Self check-in</li>
+                <li data-i18n="stan.cat.other.5">Staff available 24 hours</li>
+              </ul>
+            </div>
+          </div>
         </div>
 
         <aside class="pricing-card reveal">
-          <h3>Pricing</h3>
-          <p>Rates vary by season and length of stay. Contact us for a personalized quote and current availability.</p>
-          <a href="../index.html#contact" class="btn btn-primary">Contact for Rates</a>
-          <p class="pricing-note">No booking fees — reserve directly with our family.</p>
+          <h3 data-i18n="istok.pricing_title">Pricing</h3>
+          <p data-i18n="istok.pricing_desc">Rates vary by season and length of stay. Contact us for a personalized quote and current availability.</p>
+          <a href="#availability" class="btn btn-primary" data-i18n="stan.avail.cta">Check Availability</a>
+          <p class="pricing-note" data-i18n="istok.pricing_note">No booking fees — reserve directly with our family.</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ AVAILABILITY & PRICING ============ -->
+  <section id="availability" class="availability-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow" data-i18n="stan.avail.eyebrow">Booking</span>
+        <h2 class="section-title" data-i18n="stan.avail.title">Availability &amp; Pricing</h2>
+        <p class="section-subtitle" data-i18n="stan.avail.subtitle">Select your check-in and check-out dates to see pricing and availability.</p>
+      </div>
+
+      <div class="availability-grid reveal">
+        <div class="calendar-widget">
+          <div class="calendar-header">
+            <button type="button" class="calendar-nav" id="calendar-prev" data-i18n-aria-label="stan.avail.prev" aria-label="Previous month">&larr;</button>
+            <span class="calendar-month-label" id="calendar-month-label"></span>
+            <button type="button" class="calendar-nav" id="calendar-next" data-i18n-aria-label="stan.avail.next" aria-label="Next month">&rarr;</button>
+          </div>
+          <div class="calendar-weekdays" id="calendar-weekdays"></div>
+          <div class="calendar-days" id="calendar-days"></div>
+          <div class="calendar-legend">
+            <span class="legend-item"><span class="legend-dot available"></span><span data-i18n="stan.avail.legend_available">Available</span></span>
+            <span class="legend-item"><span class="legend-dot unavailable"></span><span data-i18n="stan.avail.legend_unavailable">Unavailable</span></span>
+            <span class="legend-item"><span class="legend-dot selected"></span><span data-i18n="stan.avail.legend_selected">Selected</span></span>
+          </div>
+          <p class="calendar-updated" id="calendar-updated"></p>
+        </div>
+
+        <aside class="booking-summary">
+          <div id="booking-summary-content">
+            <p class="booking-prompt" data-i18n="stan.avail.prompt_checkin">Select a check-in date</p>
+          </div>
+          <button type="button" class="text-link booking-clear" id="booking-clear" data-i18n="stan.avail.clear" style="display: none;">Clear selection</button>
+          <div class="booking-actions">
+            <!-- Placeholder links — replace with your real Airbnb/Booking.com listing URLs -->
+            <a href="https://www.airbnb.com/" target="_blank" rel="noopener" class="btn btn-outline" data-i18n="stan.avail.book_airbnb">Book via Airbnb</a>
+            <a href="https://www.booking.com/" target="_blank" rel="noopener" class="btn btn-outline" data-i18n="stan.avail.book_booking">Book via Booking.com</a>
+          </div>
+          <p class="pricing-note" data-i18n="stan.avail.note">Prices are indicative; final price is confirmed at booking.</p>
         </aside>
       </div>
     </div>
@@ -91,12 +216,14 @@
   <footer class="site-footer">
     <div class="container">
       <p class="footer-brand">Apartmani Jadranka</p>
-      <p>Mimice, Dalmatian Coast, Croatia</p>
-      <p>&copy; <span id="year"></span> Apartmani Jadranka. All rights reserved.</p>
+      <p data-i18n="footer.location">Mimice, Dalmatian Coast, Croatia</p>
+      <p>&copy; <span id="year"></span> Apartmani Jadranka. <span data-i18n="footer.rights">All rights reserved.</span></p>
     </div>
   </footer>
 
+  <script src="../js/i18n.js"></script>
   <script src="../js/main.js"></script>
+  <script src="../js/calendar.js"></script>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>

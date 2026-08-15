@@ -272,6 +272,45 @@ section {
   border-bottom-color: currentColor;
 }
 
+.lang-switch {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.6);
+  transition: color 0.4s ease;
+}
+
+.site-header.scrolled .lang-switch,
+.site-header.solid .lang-switch {
+  color: var(--color-text-light);
+}
+
+.lang-switch button {
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: inherit;
+  cursor: pointer;
+  opacity: 0.65;
+  transition: opacity 0.2s ease;
+}
+
+.lang-switch button.active {
+  opacity: 1;
+  font-weight: 500;
+  color: var(--color-white);
+}
+
+.site-header.scrolled .lang-switch button.active,
+.site-header.solid .lang-switch button.active {
+  color: var(--color-sea-deep);
+}
+
 .nav-toggle {
   display: none;
   flex-direction: column;
@@ -631,6 +670,248 @@ section {
   border-bottom: 1px solid var(--color-sand-dark);
 }
 
+/* --- Categorized amenities (Stan) --- */
+.amenities-categories {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 36px 40px;
+  margin-top: 24px;
+}
+
+.amenity-category-title {
+  font-family: var(--font-body);
+  font-size: 0.74rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-sea);
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.amenity-category .amenities-list {
+  display: block;
+}
+
+.amenity-category .amenities-list li {
+  font-size: 0.92rem;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+/* ===========================================================
+   Availability & Pricing (calendar + booking summary)
+   =========================================================== */
+
+.availability-section {
+  background-color: var(--color-sand);
+}
+
+.availability-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 56px;
+  align-items: start;
+}
+
+.calendar-widget {
+  background-color: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: 36px;
+  box-shadow: var(--shadow-soft);
+}
+
+.calendar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.calendar-month-label {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--color-sea-deep);
+}
+
+.calendar-nav {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--color-sand-dark);
+  background: none;
+  color: var(--color-sea-deep);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.calendar-nav:hover {
+  background-color: var(--color-sea-mist);
+  border-color: var(--color-sea);
+}
+
+.calendar-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin-bottom: 8px;
+}
+
+.calendar-weekdays span {
+  text-align: center;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-light);
+  padding-bottom: 8px;
+}
+
+.calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+
+.calendar-day {
+  aspect-ratio: 1;
+  border: none;
+  background: none;
+  border-radius: 50%;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 400;
+  color: var(--color-text);
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.calendar-day.empty {
+  cursor: default;
+}
+
+.calendar-day:not(.unavailable):not(.empty):hover {
+  background-color: var(--color-sea-mist);
+}
+
+.calendar-day.unavailable {
+  color: var(--color-sand-dark);
+  text-decoration: line-through;
+  cursor: not-allowed;
+}
+
+.calendar-day.selected {
+  background-color: var(--color-sea-deep);
+  color: var(--color-white);
+}
+
+.calendar-day.in-range {
+  background-color: var(--color-sea-mist);
+  border-radius: 0;
+}
+
+.calendar-legend {
+  display: flex;
+  gap: 20px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78rem;
+  color: var(--color-text-light);
+}
+
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.legend-dot.available {
+  background-color: var(--color-sea-mist);
+  border: 1px solid var(--color-sand-dark);
+}
+
+.legend-dot.unavailable {
+  background-color: var(--color-sand-dark);
+}
+
+.legend-dot.selected {
+  background-color: var(--color-sea-deep);
+}
+
+.calendar-updated {
+  margin-top: 18px;
+  font-size: 0.72rem;
+  color: var(--color-text-light);
+}
+
+.booking-summary {
+  background-color: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: 36px;
+  box-shadow: var(--shadow-soft);
+  position: sticky;
+  top: 130px;
+}
+
+.booking-prompt {
+  font-size: 0.95rem;
+  color: var(--color-text-light);
+  font-weight: 300;
+}
+
+.booking-prompt.unavailable-msg {
+  color: #9c3a26;
+}
+
+.booking-dates {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--color-sea-deep);
+  margin-bottom: 18px;
+}
+
+.booking-line {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-top: 1px solid var(--color-sand-dark);
+  font-size: 0.92rem;
+  color: var(--color-text-light);
+  font-weight: 300;
+}
+
+.booking-line.total {
+  color: var(--color-sea-deep);
+  font-weight: 500;
+  font-size: 1.05rem;
+}
+
+.booking-clear {
+  margin-top: 16px;
+  margin-bottom: 4px;
+}
+
+.booking-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.booking-actions .btn {
+  text-align: center;
+}
+
+.booking-summary .pricing-note {
+  margin-top: 20px;
+  text-align: left;
+}
+
 .pricing-card {
   background-color: var(--color-white);
   border-radius: var(--radius-lg);
@@ -872,6 +1153,20 @@ section {
     position: static;
   }
 
+  .amenities-categories {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .availability-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .booking-summary {
+    position: static;
+  }
+
   .contact-grid {
     grid-template-columns: 1fr;
   }
@@ -927,6 +1222,19 @@ section {
     font-size: 0.9rem;
   }
 
+  .nav-links .lang-switch {
+    color: var(--color-text-light) !important;
+    margin-top: 8px;
+  }
+
+  .nav-links .lang-switch button {
+    color: inherit !important;
+  }
+
+  .nav-links .lang-switch button.active {
+    color: var(--color-sea-deep) !important;
+  }
+
   .nav-toggle {
     display: flex;
   }
@@ -941,6 +1249,15 @@ section {
 
   .unit-hero-page {
     padding-top: 160px;
+  }
+
+  .calendar-widget,
+  .booking-summary {
+    padding: 26px;
+  }
+
+  .calendar-month-label {
+    font-size: 1.1rem;
   }
 }
 

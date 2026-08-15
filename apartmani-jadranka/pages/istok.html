@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Istok | Apartmani Jadranka, Mimice</title>
-  <meta name="description" content="Istok — a bright, spacious apartment at Apartmani Jadranka in Mimice, Dalmatian coast, Croatia.">
+  <meta name="description" content="Istok — svijetao i prostran apartman u sklopu Apartmani Jadranka, Mimice, dalmatinska obala, Hrvatska.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
@@ -16,10 +16,15 @@
     <nav class="nav">
       <a href="../index.html" class="nav-brand">Apartmani Jadranka</a>
       <ul class="nav-links">
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="stan.html">Stan</a></li>
-        <li><a href="istok.html" class="active">Istok</a></li>
-        <li><a href="../index.html#contact">Contact</a></li>
+        <li><a href="../index.html" data-i18n="nav.home">Home</a></li>
+        <li><a href="stan.html" data-i18n="nav.stan">Stan</a></li>
+        <li><a href="istok.html" class="active" data-i18n="nav.istok">Istok</a></li>
+        <li><a href="../index.html#contact" data-i18n="nav.contact">Contact</a></li>
+        <li class="lang-switch">
+          <button type="button" data-lang-btn="hr">HR</button>
+          <span aria-hidden="true">/</span>
+          <button type="button" data-lang-btn="en">EN</button>
+        </li>
       </ul>
       <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -30,9 +35,9 @@
   <!-- ============ UNIT HERO ============ -->
   <section class="unit-hero-page">
     <div class="container">
-      <p class="breadcrumb"><a href="../index.html">Home</a> / Istok</p>
+      <p class="breadcrumb"><a href="../index.html" data-i18n="istok.breadcrumb">Home</a> / Istok</p>
       <h1>Istok</h1>
-      <p class="tagline">Our sunniest, most spacious apartment — room for the whole family.</p>
+      <p class="tagline" data-i18n="istok.tagline">Our sunniest, most spacious apartment — room for the whole family.</p>
     </div>
   </section>
 
@@ -40,11 +45,11 @@
   <section class="container reveal" style="padding-bottom: 0;">
     <div class="gallery-grid">
       <!-- Swap each placeholder's background with a real photo in css/style.css or inline style="background:url('../images/your-photo.jpg') center/cover no-repeat;" -->
-      <div class="gallery-item"><span>Living room</span></div>
-      <div class="gallery-item"><span>Bedroom</span></div>
-      <div class="gallery-item"><span>Kitchen</span></div>
-      <div class="gallery-item"><span>Balcony</span></div>
-      <div class="gallery-item"><span>Bathroom</span></div>
+      <div class="gallery-item"><span data-i18n="istok.gallery.living">Living room</span></div>
+      <div class="gallery-item"><span data-i18n="istok.gallery.bedroom">Bedroom</span></div>
+      <div class="gallery-item"><span data-i18n="istok.gallery.kitchen">Kitchen</span></div>
+      <div class="gallery-item"><span data-i18n="istok.gallery.balcony">Balcony</span></div>
+      <div class="gallery-item"><span data-i18n="istok.gallery.bathroom">Bathroom</span></div>
     </div>
   </section>
 
@@ -54,36 +59,35 @@
       <div class="unit-details-grid">
         <div class="unit-description reveal">
           <span class="eyebrow">Istok</span>
-          <h2>Bright, Spacious, East-Facing</h2>
-          <span class="sleeps-badge">Sleeps up to 6</span>
-          <p>
-            <!-- Placeholder description — edit freely -->
+          <h2 data-i18n="istok.about_title">Bright, Spacious, East-Facing</h2>
+          <span class="sleeps-badge" data-i18n="istok.sleeps">Sleeps up to 6</span>
+          <p data-i18n="istok.desc_p1">
             Named for the morning light that fills it, Istok is our larger apartment — two bedrooms, a spacious
             living and dining area, and a balcony with a glimpse of the sea in the distance.
           </p>
-          <p>
+          <p data-i18n="istok.desc_p2">
             Sits just steps from Stan, sharing the same peaceful garden and easy parking — ideal for booking
             both units together for larger group getaways.
           </p>
 
-          <span class="amenities-heading">Amenities</span>
+          <span class="amenities-heading" data-i18n="istok.amenities_heading">Amenities</span>
           <ul class="amenities-list">
-            <li>Fully equipped kitchen</li>
-            <li>Free WiFi</li>
-            <li>Private parking</li>
-            <li>Air conditioning</li>
-            <li>Balcony</li>
-            <li>Washing machine</li>
-            <li>Flat-screen TV</li>
-            <li>Bed linens &amp; towels included</li>
+            <li data-i18n="istok.am_kitchen">Fully equipped kitchen</li>
+            <li data-i18n="istok.am_wifi">Free WiFi</li>
+            <li data-i18n="istok.am_parking">Private parking</li>
+            <li data-i18n="istok.am_ac">Air conditioning</li>
+            <li data-i18n="istok.am_balcony">Balcony</li>
+            <li data-i18n="istok.am_washer">Washing machine</li>
+            <li data-i18n="istok.am_tv">Flat-screen TV</li>
+            <li data-i18n="istok.am_linens">Bed linens &amp; towels included</li>
           </ul>
         </div>
 
         <aside class="pricing-card reveal">
-          <h3>Pricing</h3>
-          <p>Rates vary by season and length of stay. Contact us for a personalized quote and current availability.</p>
-          <a href="../index.html#contact" class="btn btn-primary">Contact for Rates</a>
-          <p class="pricing-note">No booking fees — reserve directly with our family.</p>
+          <h3 data-i18n="istok.pricing_title">Pricing</h3>
+          <p data-i18n="istok.pricing_desc">Rates vary by season and length of stay. Contact us for a personalized quote and current availability.</p>
+          <a href="../index.html#contact" class="btn btn-primary" data-i18n="istok.pricing_cta">Contact for Rates</a>
+          <p class="pricing-note" data-i18n="istok.pricing_note">No booking fees — reserve directly with our family.</p>
         </aside>
       </div>
     </div>
@@ -92,11 +96,12 @@
   <footer class="site-footer">
     <div class="container">
       <p class="footer-brand">Apartmani Jadranka</p>
-      <p>Mimice, Dalmatian Coast, Croatia</p>
-      <p>&copy; <span id="year"></span> Apartmani Jadranka. All rights reserved.</p>
+      <p data-i18n="footer.location">Mimice, Dalmatian Coast, Croatia</p>
+      <p>&copy; <span id="year"></span> Apartmani Jadranka. <span data-i18n="footer.rights">All rights reserved.</span></p>
     </div>
   </footer>
 
+  <script src="../js/i18n.js"></script>
   <script src="../js/main.js"></script>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>

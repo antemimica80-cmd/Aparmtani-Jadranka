@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Apartmani Jadranka | Mimice, Dalmatian Coast, Croatia</title>
-  <meta name="description" content="Family-run apartments in Mimice on the Dalmatian coast, Croatia. Sea views, quiet location, walking distance to the beach.">
+  <title>Apartmani Jadranka | Mimice, Dalmatinska obala, Hrvatska</title>
+  <meta name="description" content="Obiteljski apartmani u Mimicama na dalmatinskoj obali, Hrvatska. Pogled na more, mirna lokacija, blizina plaže.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
@@ -16,10 +16,15 @@
     <nav class="nav">
       <a href="index.html" class="nav-brand">Apartmani Jadranka</a>
       <ul class="nav-links">
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="pages/stan.html">Stan</a></li>
-        <li><a href="pages/istok.html">Istok</a></li>
-        <li><a href="index.html#contact">Contact</a></li>
+        <li><a href="index.html" class="active" data-i18n="nav.home">Home</a></li>
+        <li><a href="pages/stan.html" data-i18n="nav.stan">Stan</a></li>
+        <li><a href="pages/istok.html" data-i18n="nav.istok">Istok</a></li>
+        <li><a href="index.html#contact" data-i18n="nav.contact">Contact</a></li>
+        <li class="lang-switch">
+          <button type="button" data-lang-btn="hr">HR</button>
+          <span aria-hidden="true">/</span>
+          <button type="button" data-lang-btn="en">EN</button>
+        </li>
       </ul>
       <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -30,12 +35,12 @@
   <!-- ============ HERO ============ -->
   <section class="hero">
     <div class="hero-content">
-      <p class="hero-eyebrow">Mimice · Dalmatian Coast</p>
+      <p class="hero-eyebrow" data-i18n="home.hero.eyebrow">Mimice · Dalmatian Coast</p>
       <h1>Apartmani Jadranka</h1>
-      <p>Family-run apartments on the Adriatic, steps from the sea.</p>
+      <p data-i18n="home.hero.subtitle">Family-run apartments on the Adriatic, steps from the sea.</p>
       <div class="hero-actions">
-        <a href="#units" class="btn btn-secondary">Explore</a>
-        <a href="index.html#contact" class="btn btn-primary">Check Availability</a>
+        <a href="#units" class="btn btn-secondary" data-i18n="home.hero.cta_explore">Explore</a>
+        <a href="index.html#contact" class="btn btn-primary" data-i18n="home.hero.cta_check">Check Availability</a>
       </div>
     </div>
     <div class="scroll-cue"></div>
@@ -45,9 +50,9 @@
   <section id="units" class="units-overview">
     <div class="container">
       <div class="section-header reveal">
-        <span class="eyebrow">Our Apartments</span>
-        <h2 class="section-title">Two Homes by the Sea</h2>
-        <p class="section-subtitle">Independent, self-contained apartments — each with its own character, both a short walk from the water.</p>
+        <span class="eyebrow" data-i18n="home.units.eyebrow">Our Apartments</span>
+        <h2 class="section-title" data-i18n="home.units.title">Two Homes by the Sea</h2>
+        <p class="section-subtitle" data-i18n="home.units.subtitle">Independent, self-contained apartments — each with its own character, both a short walk from the water.</p>
       </div>
 
       <div class="units-grid">
@@ -57,13 +62,13 @@
           </a>
           <div class="unit-card-body">
             <h3>Stan</h3>
-            <p>Cozy and light-filled, with a private terrace — ideal for couples and small families.</p>
+            <p data-i18n="home.units.stan_desc">Cozy and light-filled, with a private terrace — ideal for couples and small families.</p>
             <div class="unit-card-meta">
-              <span>Sleeps 4</span>
+              <span data-i18n="home.units.stan_meta1">Sleeps 4</span>
               <span class="dot"></span>
-              <span>Terrace</span>
+              <span data-i18n="home.units.stan_meta2">Terrace</span>
             </div>
-            <a href="pages/stan.html" class="text-link">Discover Stan &rarr;</a>
+            <a href="pages/stan.html" class="text-link" data-i18n="home.units.stan_link">Discover Stan &rarr;</a>
           </div>
         </article>
 
@@ -73,13 +78,13 @@
           </a>
           <div class="unit-card-body">
             <h3>Istok</h3>
-            <p>Our sunniest, most spacious unit — bright morning light and room for the whole family.</p>
+            <p data-i18n="home.units.istok_desc">Our sunniest, most spacious unit — bright morning light and room for the whole family.</p>
             <div class="unit-card-meta">
-              <span>Sleeps 6</span>
+              <span data-i18n="home.units.istok_meta1">Sleeps 6</span>
               <span class="dot"></span>
-              <span>Balcony</span>
+              <span data-i18n="home.units.istok_meta2">Balcony</span>
             </div>
-            <a href="pages/istok.html" class="text-link">Discover Istok &rarr;</a>
+            <a href="pages/istok.html" class="text-link" data-i18n="home.units.istok_link">Discover Istok &rarr;</a>
           </div>
         </article>
       </div>
@@ -90,30 +95,30 @@
   <section class="why-stay">
     <div class="container">
       <div class="section-header reveal">
-        <span class="eyebrow">The Experience</span>
-        <h2 class="section-title">Why Stay With Us</h2>
+        <span class="eyebrow" data-i18n="home.why.eyebrow">The Experience</span>
+        <h2 class="section-title" data-i18n="home.why.title">Why Stay With Us</h2>
       </div>
 
       <div class="features-grid reveal">
         <div class="feature-card">
           <div class="feature-icon">01</div>
-          <h3>Sea Views</h3>
-          <p>A short walk to the water's edge.</p>
+          <h3 data-i18n="home.why.f1_title">Sea Views</h3>
+          <p data-i18n="home.why.f1_desc">A short walk to the water's edge.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">02</div>
-          <h3>Quiet Location</h3>
-          <p>Peaceful Mimice, away from the crowds.</p>
+          <h3 data-i18n="home.why.f2_title">Quiet Location</h3>
+          <p data-i18n="home.why.f2_desc">Peaceful Mimice, away from the crowds.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">03</div>
-          <h3>Self-Catering</h3>
-          <p>Fully equipped kitchens, home comforts.</p>
+          <h3 data-i18n="home.why.f3_title">Self-Catering</h3>
+          <p data-i18n="home.why.f3_desc">Fully equipped kitchens, home comforts.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">04</div>
-          <h3>Local Hospitality</h3>
-          <p>A warm welcome from a family that knows the coast.</p>
+          <h3 data-i18n="home.why.f4_title">Local Hospitality</h3>
+          <p data-i18n="home.why.f4_desc">A warm welcome from a family that knows the coast.</p>
         </div>
       </div>
     </div>
@@ -123,72 +128,72 @@
   <section id="contact" class="contact-section">
     <div class="container">
       <div class="section-header reveal">
-        <span class="eyebrow">Get in Touch</span>
-        <h2 class="section-title">Availability &amp; Contact</h2>
-        <p class="section-subtitle">Send us your dates and we'll get back to you with availability and rates.</p>
+        <span class="eyebrow" data-i18n="contact.eyebrow">Get in Touch</span>
+        <h2 class="section-title" data-i18n="contact.title">Availability &amp; Contact</h2>
+        <p class="section-subtitle" data-i18n="contact.subtitle">Send us your dates and we'll get back to you with availability and rates.</p>
       </div>
 
       <div class="contact-grid reveal">
         <form id="inquiry-form" class="contact-form" novalidate>
           <div class="form-row">
             <div class="form-group">
-              <label for="name">Full Name</label>
-              <input type="text" id="name" name="name" placeholder="Your name" required>
+              <label for="name" data-i18n="contact.form_name">Full Name</label>
+              <input type="text" id="name" name="name" data-i18n-placeholder="contact.form_name_ph" placeholder="Your name" required>
             </div>
             <div class="form-group">
-              <label for="email">Email</label>
+              <label for="email" data-i18n="contact.form_email">Email</label>
               <input type="email" id="email" name="email" placeholder="you@example.com" required>
             </div>
           </div>
 
           <div class="form-row">
             <div class="form-group">
-              <label for="checkin">Check-in</label>
+              <label for="checkin" data-i18n="contact.form_checkin">Check-in</label>
               <input type="date" id="checkin" name="checkin">
             </div>
             <div class="form-group">
-              <label for="checkout">Check-out</label>
+              <label for="checkout" data-i18n="contact.form_checkout">Check-out</label>
               <input type="date" id="checkout" name="checkout">
             </div>
           </div>
 
           <div class="form-group">
-            <label for="unit">Which Apartment?</label>
+            <label for="unit" data-i18n="contact.form_unit">Which Apartment?</label>
             <select id="unit" name="unit">
               <option value="Stan">Stan</option>
               <option value="Istok">Istok</option>
-              <option value="Not sure">Not sure / either is fine</option>
+              <option value="Not sure" data-i18n="contact.form_unit_notsure">Not sure / either is fine</option>
             </select>
           </div>
 
           <div class="form-group">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" placeholder="Tell us about your stay — number of guests, special requests, etc." required></textarea>
+            <label for="message" data-i18n="contact.form_message">Message</label>
+            <textarea id="message" name="message" data-i18n-placeholder="contact.form_message_ph" placeholder="Tell us about your stay — number of guests, special requests, etc." required></textarea>
           </div>
 
-          <button type="submit" class="btn btn-primary">Send Inquiry</button>
+          <button type="submit" class="btn btn-primary" data-i18n="contact.form_submit">Send Inquiry</button>
           <div id="form-status" class="form-status" role="status"></div>
         </form>
 
         <div class="contact-info">
           <div class="contact-info-card">
-            <h3>Direct Contact</h3>
+            <h3 data-i18n="contact.direct">Direct Contact</h3>
             <div class="contact-detail">
-              <span class="label">Email</span>
+              <span class="label" data-i18n="contact.label_email">Email</span>
               <span><!-- Replace with real email --> info@apartmani-jadranka.example</span>
             </div>
             <div class="contact-detail">
-              <span class="label">Phone</span>
+              <span class="label" data-i18n="contact.label_phone">Phone</span>
               <span><!-- Replace with real phone --> +385 91 234 5678</span>
             </div>
             <div class="contact-detail">
-              <span class="label">Location</span>
-              <span>Mimice, Dalmatian Coast, Croatia</span>
+              <span class="label" data-i18n="contact.label_location">Location</span>
+              <span data-i18n="footer.location">Mimice, Dalmatian Coast, Croatia</span>
             </div>
           </div>
 
           <div class="contact-info-card">
-            <h3>Also Find Us On</h3>
+            <h3 data-i18n="contact.also_find">Also Find Us On</h3>
             <div class="platform-links">
               <!-- Replace href values with your real listing URLs -->
               <a href="https://www.airbnb.com/" target="_blank" rel="noopener">Airbnb</a>
@@ -204,11 +209,12 @@
   <footer class="site-footer">
     <div class="container">
       <p class="footer-brand">Apartmani Jadranka</p>
-      <p>Mimice, Dalmatian Coast, Croatia</p>
-      <p>&copy; <span id="year"></span> Apartmani Jadranka. All rights reserved.</p>
+      <p data-i18n="footer.location">Mimice, Dalmatian Coast, Croatia</p>
+      <p>&copy; <span id="year"></span> Apartmani Jadranka. <span data-i18n="footer.rights">All rights reserved.</span></p>
     </div>
   </footer>
 
+  <script src="js/i18n.js"></script>
   <script src="js/main.js"></script>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
