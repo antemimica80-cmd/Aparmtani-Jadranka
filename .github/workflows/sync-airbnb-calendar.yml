@@ -21,6 +21,7 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 jobs:
   sync:
@@ -47,13 +48,26 @@ jobs:
           node scripts/sync-airbnb-ical.mjs
 
       - name: Commit updated availability
+        id: commit
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           if git diff --quiet -- apartmani-jadranka/data/availability-stan.json; then
             echo "No changes to commit."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
           else
             git add apartmani-jadranka/data/availability-stan.json
             git commit -m "Sync Stan availability from Airbnb"
             git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
+
+      # A push made with the default GITHUB_TOKEN does not itself trigger
+      # other workflows (GitHub's loop-prevention), so the Pages deploy
+      # would otherwise stay stale until someone re-runs it by hand —
+      # trigger it explicitly whenever this sync actually changed the data.
+      - name: Trigger site redeploy
+        if: steps.commit.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh workflow run deploy-pages.yml --ref main
