@@ -92,7 +92,10 @@ function initInquiryForm() {
     // tool's API — replace this block with that call when ready.
     console.log('Inquiry captured:', data);
 
-    showStatus(status, t('contact.form_success', { name: data.name }), 'success');
+    var unitNameKeys = { Stan: 'stan.display_name', Istok: 'istok.display_name' };
+    var unitLabel = unitNameKeys[data.unit] ? t(unitNameKeys[data.unit]) : t('contact.form_unit_generic');
+
+    showStatus(status, t('contact.form_success', { name: data.name, unit: unitLabel }), 'success');
     form.reset();
   });
 }

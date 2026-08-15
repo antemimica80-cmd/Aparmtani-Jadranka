@@ -8,10 +8,20 @@
 
   var DICT = {
     // --- Navigation ---
+    // "Stan" / "Istok" are internal identifiers only (filenames, form values,
+    // JSON keys) — guests always see one of the two guest-facing names below.
+    // Short form: nav, breadcrumbs, small eyebrow labels. Full form
+    // (*.display_name): page H1s, homepage unit cards, <title> tags, the
+    // apartment picker, and the inquiry email subject.
     'nav.home': { hr: 'Početna', en: 'Home' },
-    'nav.stan': { hr: 'Stan', en: 'Stan' },
-    'nav.istok': { hr: 'Istok', en: 'Istok' },
+    'nav.stan': { hr: 'Apartman s pogledom na more', en: 'Sea View Apartment' },
+    'nav.istok': { hr: 'Apartman s dvije sobe', en: 'Two-Bedroom Apartment' },
     'nav.contact': { hr: 'Kontakt', en: 'Contact' },
+
+    'stan.display_name': { hr: 'Apartman s panoramskim pogledom na more i prostranom terasom', en: 'Panoramic Sea View Apartment with Spacious Terrace' },
+    'stan.title_tag': { hr: 'Apartman s panoramskim pogledom na more i prostranom terasom | Apartmani Jadranka', en: 'Panoramic Sea View Apartment with Spacious Terrace | Apartmani Jadranka' },
+    'istok.display_name': { hr: 'Apartman s dvije spavaće sobe i prekrasnim pogledom na more', en: 'Two-Bedroom Apartment with Stunning Sea View' },
+    'istok.title_tag': { hr: 'Apartman s dvije spavaće sobe i prekrasnim pogledom na more | Apartmani Jadranka', en: 'Two-Bedroom Apartment with Stunning Sea View | Apartmani Jadranka' },
 
     // --- Homepage: Hero ---
     'home.hero.eyebrow': { hr: 'Mimice · Dalmatinska obala', en: 'Mimice · Dalmatian Coast' },
@@ -26,11 +36,11 @@
     'home.units.stan_desc': { hr: 'Prostran, sa panoramskim pogledom na more i velikom terasom — idealan za obitelji i manje grupe.', en: 'Spacious, with panoramic sea views and a large terrace — ideal for families and small groups.' },
     'home.units.stan_meta1': { hr: '4 gosta', en: 'Sleeps 4' },
     'home.units.stan_meta2': { hr: 'Terasa 50 m²', en: '50 m² Terrace' },
-    'home.units.stan_link': { hr: 'Otkrijte Stan →', en: 'Discover Stan →' },
+    'home.units.stan_link': { hr: 'Pogledajte detalje →', en: 'View Details →' },
     'home.units.istok_desc': { hr: 'Naš najsunčaniji i najprostraniji apartman — jutarnje svjetlo i prostor za cijelu obitelj.', en: 'Our sunniest, most spacious unit — bright morning light and room for the whole family.' },
     'home.units.istok_meta1': { hr: '6 gostiju', en: 'Sleeps 6' },
     'home.units.istok_meta2': { hr: 'Balkon', en: 'Balcony' },
-    'home.units.istok_link': { hr: 'Otkrijte Istok →', en: 'Discover Istok →' },
+    'home.units.istok_link': { hr: 'Pogledajte detalje →', en: 'View Details →' },
 
     // --- Homepage: Why stay ---
     'home.why.eyebrow': { hr: 'Iskustvo', en: 'The Experience' },
@@ -55,6 +65,7 @@
     'contact.form_checkout': { hr: 'Odlazak', en: 'Check-out' },
     'contact.form_unit': { hr: 'Koji apartman?', en: 'Which Apartment?' },
     'contact.form_unit_notsure': { hr: 'Nisam siguran/na', en: 'Not sure / either is fine' },
+    'contact.form_unit_generic': { hr: 'naš smještaj', en: 'our apartments' },
     'contact.form_message': { hr: 'Poruka', en: 'Message' },
     'contact.form_message_ph': { hr: 'Recite nam nešto o vašem boravku — broj gostiju, posebni zahtjevi, itd.', en: 'Tell us about your stay — number of guests, special requests, etc.' },
     'contact.form_submit': { hr: 'Pošalji upit', en: 'Send Inquiry' },
@@ -64,7 +75,7 @@
     'contact.label_location': { hr: 'Lokacija', en: 'Location' },
     'contact.also_find': { hr: 'Također nas pronađite na', en: 'Also Find Us On' },
     'contact.form_error': { hr: 'Molimo unesite ime, email i kratku poruku.', en: 'Please fill in your name, email, and a short message.' },
-    'contact.form_success': { hr: 'Hvala, {name}! Vaš upit je zaprimljen — javit ćemo vam se uskoro putem emaila.', en: 'Thank you, {name}! Your inquiry has been noted — we will get back to you by email shortly.' },
+    'contact.form_success': { hr: 'Hvala, {name}! Vaš upit za {unit} je zaprimljen — javit ćemo vam se uskoro putem emaila.', en: 'Thank you, {name}! Your inquiry for {unit} has been noted — we will get back to you by email shortly.' },
 
     // --- Footer ---
     'footer.location': { hr: 'Mimice, Dalmatinska obala, Hrvatska', en: 'Mimice, Dalmatian Coast, Croatia' },
@@ -184,7 +195,7 @@
     'stan.avail.form_phone_ph': { hr: 'Vaš broj telefona', en: 'Your phone number' },
     'stan.avail.form_message_ph': { hr: 'Napomene, posebni zahtjevi...', en: 'Notes, special requests...' },
     'stan.avail.form_error': { hr: 'Molimo unesite ime, email i telefon.', en: 'Please fill in your name, email, and phone.' },
-    'stan.avail.email_subject': { hr: 'Upit za apartman Stan – {checkin} do {checkout}', en: 'Inquiry for Stan Apartment – {checkin} to {checkout}' },
+    'stan.avail.email_subject': { hr: 'Upit za {unit} – {checkin} do {checkout}', en: 'Inquiry for {unit} – {checkin} to {checkout}' },
     'stan.avail.email_label_name': { hr: 'Ime i prezime', en: 'Full name' },
     'stan.avail.email_label_email': { hr: 'Email', en: 'Email' },
     'stan.avail.email_label_phone': { hr: 'Telefon', en: 'Phone' },

@@ -275,7 +275,7 @@
       var nights = form.dataset.nights;
       var total = form.dataset.total;
 
-      var subject = t('stan.avail.email_subject', { checkin: checkin, checkout: checkout });
+      var subject = t('stan.avail.email_subject', { unit: t('stan.display_name'), checkin: checkin, checkout: checkout });
 
       var bodyLines = [
         t('stan.avail.email_label_name') + ': ' + name,
