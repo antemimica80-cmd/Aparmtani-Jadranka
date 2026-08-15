@@ -80,8 +80,10 @@ function initInquiryForm() {
       message: form.elements['message'].value.trim()
     };
 
+    var t = window.Jadranka ? window.Jadranka.t : function (key) { return key; };
+
     if (!data.name || !data.email || !data.message) {
-      showStatus(status, 'Please fill in your name, email, and a short message.', 'error');
+      showStatus(status, t('contact.form_error'), 'error');
       return;
     }
 
@@ -90,7 +92,7 @@ function initInquiryForm() {
     // tool's API — replace this block with that call when ready.
     console.log('Inquiry captured:', data);
 
-    showStatus(status, 'Thank you, ' + data.name + '! Your inquiry has been noted — we will get back to you by email shortly. (This form is not yet connected to email; see js/main.js.)', 'success');
+    showStatus(status, t('contact.form_success', { name: data.name }), 'success');
     form.reset();
   });
 }
