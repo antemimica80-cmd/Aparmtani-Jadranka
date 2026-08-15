@@ -202,12 +202,42 @@
             <p class="booking-prompt" data-i18n="stan.avail.prompt_checkin">Select a check-in date</p>
           </div>
           <button type="button" class="text-link booking-clear" id="booking-clear" data-i18n="stan.avail.clear" style="display: none;">Clear selection</button>
-          <div class="booking-actions">
-            <!-- Placeholder links — replace with your real Airbnb/Booking.com listing URLs -->
-            <a href="https://www.airbnb.com/" target="_blank" rel="noopener" class="btn btn-outline" data-i18n="stan.avail.book_airbnb">Book via Airbnb</a>
-            <a href="https://www.booking.com/" target="_blank" rel="noopener" class="btn btn-outline" data-i18n="stan.avail.book_booking">Book via Booking.com</a>
-          </div>
           <p class="pricing-note" data-i18n="stan.avail.note">Prices are indicative; final price is confirmed at booking.</p>
+
+          <!-- Shown only once valid, available dates meeting the season's minimum stay are selected (see js/calendar.js) -->
+          <form id="inquiry-stan-form" class="inquiry-stan-form" novalidate style="display: none;">
+            <h3 class="inquiry-form-title" data-i18n="stan.avail.inquiry_title">Send an Inquiry for These Dates</h3>
+
+            <div class="form-group">
+              <label for="stan-name" data-i18n="contact.form_name">Full Name</label>
+              <input type="text" id="stan-name" name="name" data-i18n-placeholder="contact.form_name_ph" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+              <label for="stan-email" data-i18n="contact.form_email">Email</label>
+              <input type="email" id="stan-email" name="email" placeholder="you@example.com" required>
+            </div>
+            <div class="form-group">
+              <label for="stan-phone" data-i18n="stan.avail.form_phone">Phone</label>
+              <input type="tel" id="stan-phone" name="phone" data-i18n-placeholder="stan.avail.form_phone_ph" placeholder="Your phone number" required>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="stan-adults" data-i18n="stan.avail.form_adults">Number of adults</label>
+                <input type="number" id="stan-adults" name="adults" min="1" value="1" required>
+              </div>
+              <div class="form-group">
+                <label for="stan-children" data-i18n="stan.avail.form_children">Number of children</label>
+                <input type="number" id="stan-children" name="children" min="0" value="0">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="stan-message" data-i18n="contact.form_message">Message</label>
+              <textarea id="stan-message" name="message" data-i18n-placeholder="stan.avail.form_message_ph" placeholder="Notes, special requests..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" data-i18n="contact.form_submit">Send Inquiry</button>
+            <div id="stan-form-status" class="form-status" role="status"></div>
+          </form>
         </aside>
       </div>
     </div>

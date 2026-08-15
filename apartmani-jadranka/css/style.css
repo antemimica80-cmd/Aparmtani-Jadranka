@@ -896,20 +896,26 @@ section {
   margin-bottom: 4px;
 }
 
-.booking-actions {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-top: 24px;
-}
-
-.booking-actions .btn {
-  text-align: center;
-}
-
 .booking-summary .pricing-note {
   margin-top: 20px;
   text-align: left;
+}
+
+.inquiry-stan-form {
+  margin-top: 28px;
+  padding-top: 28px;
+  border-top: 1px solid var(--color-sand-dark);
+}
+
+.inquiry-form-title {
+  font-size: 1.05rem;
+  color: var(--color-sea-deep);
+  margin-bottom: 20px;
+}
+
+.inquiry-stan-form .btn {
+  width: 100%;
+  text-align: center;
 }
 
 .pricing-card {

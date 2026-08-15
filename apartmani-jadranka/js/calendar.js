@@ -11,14 +11,23 @@
 (function () {
   var PRICING_CONFIG = {
     currency: '€',
+    // Month-day ranges (inclusive), matched against every year — must stay
+    // contiguous and cover the full year (no gaps/overlaps). Real rate card
+    // from the owner, except "offseason" (Nov–mid-Apr), which is a
+    // placeholder until the final price is confirmed.
     seasons: [
-      { key: 'low', start: '01-01', end: '05-31', price: 70 },
-      { key: 'mid', start: '06-01', end: '06-30', price: 100 },
-      { key: 'high', start: '07-01', end: '08-31', price: 140 },
-      { key: 'mid', start: '09-01', end: '09-30', price: 100 },
-      { key: 'low', start: '10-01', end: '12-31', price: 70 }
+      { key: 'offseason', start: '01-01', end: '04-15', price: 70, minNights: 2 },
+      { key: 'low', start: '04-16', end: '05-31', price: 105, minNights: 3 },
+      { key: 'mid', start: '06-01', end: '06-15', price: 115, minNights: 5 },
+      { key: 'midhigh', start: '06-16', end: '06-30', price: 145, minNights: 5 },
+      { key: 'high', start: '07-01', end: '08-31', price: 185, minNights: 7 },
+      { key: 'midhigh', start: '09-01', end: '09-15', price: 145, minNights: 5 },
+      { key: 'mid', start: '09-16', end: '09-30', price: 115, minNights: 5 },
+      { key: 'low', start: '10-01', end: '10-31', price: 95, minNights: 3 },
+      { key: 'offseason', start: '11-01', end: '12-31', price: 70, minNights: 2 }
     ],
-    defaultPrice: 80
+    defaultPrice: 70,
+    defaultMinNights: 2
   };
 
   var state = {
@@ -45,6 +54,11 @@
   function priceForDate(date) {
     var s = seasonForDate(date);
     return s ? s.price : PRICING_CONFIG.defaultPrice;
+  }
+
+  function minNightsForDate(date) {
+    var s = seasonForDate(date);
+    return s ? s.minNights : PRICING_CONFIG.defaultMinNights;
   }
 
   function isPast(date) {
@@ -174,27 +188,41 @@
     var t = window.Jadranka.t;
     var content = document.getElementById('booking-summary-content');
     var clearBtn = document.getElementById('booking-clear');
+    var form = document.getElementById('inquiry-stan-form');
     if (!content) return;
 
     if (!state.checkin) {
       content.innerHTML = '<p class="booking-prompt">' + t('stan.avail.prompt_checkin') + '</p>';
       clearBtn.style.display = 'none';
+      form.style.display = 'none';
       return;
     }
 
     if (!state.checkout) {
       content.innerHTML = '<p class="booking-prompt">' + t('stan.avail.prompt_checkout') + '</p>';
       clearBtn.style.display = '';
+      form.style.display = 'none';
       return;
     }
 
     if (hasBlockedInRange(state.checkin, state.checkout)) {
       content.innerHTML = '<p class="booking-prompt unavailable-msg">' + t('stan.avail.unavailable_msg') + '</p>';
       clearBtn.style.display = '';
+      form.style.display = 'none';
       return;
     }
 
     var nights = Math.round((state.checkout - state.checkin) / 86400000);
+
+    // Minimum stay is governed by the check-in date's season.
+    var required = minNightsForDate(state.checkin);
+    if (nights < required) {
+      content.innerHTML = '<p class="booking-prompt unavailable-msg">' + t('stan.avail.min_nights_msg', { min: required }) + '</p>';
+      clearBtn.style.display = '';
+      form.style.display = 'none';
+      return;
+    }
+
     var total = 0;
     var d = new Date(state.checkin);
     for (var i = 0; i < nights; i++) {
@@ -209,6 +237,70 @@
       '<div class="booking-line"><span>' + t('stan.avail.price_per_night') + '</span><span>' + PRICING_CONFIG.currency + avgPerNight + '</span></div>' +
       '<div class="booking-line total"><span>' + t('stan.avail.total') + '</span><span>' + PRICING_CONFIG.currency + total + '</span></div>';
     clearBtn.style.display = '';
+
+    // Reveal the inquiry form and stash the computed values for submit —
+    // the form's own fields are left untouched so in-progress typing
+    // survives further calendar clicks.
+    form.style.display = '';
+    form.dataset.checkinDisplay = fmtDate(state.checkin);
+    form.dataset.checkoutDisplay = fmtDate(state.checkout);
+    form.dataset.nights = nights;
+    form.dataset.total = total;
+  }
+
+  function initInquiryForm() {
+    var form = document.getElementById('inquiry-stan-form');
+    var status = document.getElementById('stan-form-status');
+    if (!form) return;
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var t = window.Jadranka.t;
+
+      var name = form.elements['name'].value.trim();
+      var email = form.elements['email'].value.trim();
+      var phone = form.elements['phone'].value.trim();
+      var adults = form.elements['adults'].value || '1';
+      var children = form.elements['children'].value || '0';
+      var message = form.elements['message'].value.trim();
+
+      if (!name || !email || !phone) {
+        status.textContent = t('stan.avail.form_error');
+        status.className = 'form-status visible error';
+        return;
+      }
+
+      var checkin = form.dataset.checkinDisplay;
+      var checkout = form.dataset.checkoutDisplay;
+      var nights = form.dataset.nights;
+      var total = form.dataset.total;
+
+      var subject = t('stan.avail.email_subject', { checkin: checkin, checkout: checkout });
+
+      var bodyLines = [
+        t('stan.avail.email_label_name') + ': ' + name,
+        t('stan.avail.email_label_email') + ': ' + email,
+        t('stan.avail.email_label_phone') + ': ' + phone,
+        t('stan.avail.email_label_checkin') + ': ' + checkin,
+        t('stan.avail.email_label_checkout') + ': ' + checkout,
+        t('stan.avail.email_label_nights') + ': ' + nights,
+        t('stan.avail.email_label_adults') + ': ' + adults,
+        t('stan.avail.email_label_children') + ': ' + children,
+        t('stan.avail.email_label_total') + ': ' + PRICING_CONFIG.currency + total,
+        '',
+        t('stan.avail.email_label_message') + ':',
+        message || '-'
+      ];
+
+      var mailto = 'mailto:antemimica80@gmail.com' +
+        '?subject=' + encodeURIComponent(subject) +
+        '&body=' + encodeURIComponent(bodyLines.join('\n'));
+
+      window.location.href = mailto;
+
+      status.textContent = '';
+      status.className = 'form-status';
+    });
   }
 
   function init() {
@@ -239,6 +331,7 @@
 
     document.addEventListener('jadranka:languagechange', render);
 
+    initInquiryForm();
     loadAvailability().then(render);
   }
 
