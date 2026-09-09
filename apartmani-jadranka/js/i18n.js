@@ -54,6 +54,9 @@
     'home.why.f4_title': { hr: 'Domaće gostoprimstvo', en: 'Local Hospitality' },
     'home.why.f4_desc': { hr: 'Topla dobrodošlica obitelji koja poznaje obalu.', en: 'A warm welcome from a family that knows the coast.' },
 
+    // --- Gallery lightbox (shared: unit pages) ---
+    'gallery.show_all': { hr: 'Prikaži sve fotografije', en: 'Show all photos' },
+
     // --- Contact / inquiry (shared: home + unit pages link here) ---
     'contact.eyebrow': { hr: 'Kontaktirajte nas', en: 'Get in Touch' },
     'contact.title': { hr: 'Dostupnost i kontakt', en: 'Availability & Contact' },
