@@ -41,13 +41,12 @@
       tile.type = 'button';
       tile.className = 'gallery-preview-tile';
       tile.style.backgroundImage = photo.bg;
+      // No visible caption on the preview tile (matches Airbnb) — the label
+      // is still exposed to screen readers via aria-label (kept in sync with
+      // the language toggle via data-i18n-aria-label), and shown once a
+      // visitor opens the lightbox.
       tile.setAttribute('aria-label', photo.label);
-
-      var label = document.createElement('span');
-      label.className = 'gallery-preview-label';
-      label.textContent = photo.label;
-      if (photo.i18nKey) label.setAttribute('data-i18n', photo.i18nKey);
-      tile.appendChild(label);
+      if (photo.i18nKey) tile.setAttribute('data-i18n-aria-label', photo.i18nKey);
 
       var photoIndex = photos.indexOf(photo);
       tile.addEventListener('click', function () { openLightbox(photos, photoIndex); });

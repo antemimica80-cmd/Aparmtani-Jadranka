@@ -649,9 +649,7 @@ section {
 .gallery-preview-tile {
   position: relative;
   border: none;
-  padding: 18px;
-  display: flex;
-  align-items: flex-end;
+  padding: 0;
   border-radius: var(--radius-lg);
   overflow: hidden;
   cursor: pointer;
@@ -667,14 +665,6 @@ section {
 .gallery-preview-tile:first-child {
   grid-column: 1;
   grid-row: 1 / span 2;
-}
-
-.gallery-preview-label {
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 0.72rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
 }
 
 .gallery-show-all {
