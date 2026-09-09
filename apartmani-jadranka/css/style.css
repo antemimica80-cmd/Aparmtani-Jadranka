@@ -628,6 +628,161 @@ section {
 .gallery-item:nth-child(15) { background: linear-gradient(160deg, #5f9c7f 0%, #2f5240 100%); }
 .gallery-item:nth-child(16) { background: linear-gradient(160deg, #5f9c7f 0%, #2f5240 100%); }
 
+/* The full gallery-grid above is the source of truth for photos/labels and
+   stays visible as a no-JS fallback; js/gallery.js hides it and builds the
+   compact preview + lightbox below once it runs. */
+.gallery-grid.gallery-grid-hidden {
+  display: none;
+}
+
+/* ===========================================================
+   Gallery preview (Airbnb-style: 1 large + 4 small) & lightbox
+   =========================================================== */
+
+.gallery-preview {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr;
+  grid-template-rows: repeat(2, 220px);
+  gap: 12px;
+}
+
+.gallery-preview-tile {
+  position: relative;
+  border: none;
+  padding: 18px;
+  display: flex;
+  align-items: flex-end;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  cursor: pointer;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.gallery-preview-tile:hover {
+  transform: scale(1.02);
+}
+
+.gallery-preview-tile:first-child {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+}
+
+.gallery-preview-label {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
+}
+
+.gallery-show-all {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  background-color: rgba(255, 255, 255, 0.94);
+  color: var(--color-sea-deep);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  padding: 9px 16px;
+  border-radius: 999px;
+  box-shadow: var(--shadow-small);
+}
+
+/* Desktop: the hero tile's own "show all" copy stays hidden — the one on
+   the last small tile is the visible entry point (see the mobile override
+   below, where it flips). */
+.gallery-preview-tile:first-child .gallery-show-all {
+  display: none;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background-color: rgba(9, 26, 36, 0.94);
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox.open {
+  display: flex;
+}
+
+body.lightbox-locked {
+  overflow: hidden;
+}
+
+.lightbox-stage {
+  width: min(90vw, 1100px);
+  text-align: center;
+}
+
+.lightbox-image {
+  width: 100%;
+  height: min(70vh, 640px);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: var(--radius-lg);
+}
+
+.lightbox-caption {
+  margin-top: 18px;
+  color: var(--color-white);
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.lightbox-counter {
+  margin-top: 6px;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.78rem;
+}
+
+.lightbox-close,
+.lightbox-prev,
+.lightbox-next {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.12);
+  border: none;
+  color: var(--color-white);
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+}
+
+.lightbox-close:hover,
+.lightbox-prev:hover,
+.lightbox-next:hover {
+  background-color: rgba(255, 255, 255, 0.24);
+}
+
+.lightbox-close {
+  top: 24px;
+  right: 24px;
+  width: 44px;
+  height: 44px;
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.lightbox-prev,
+.lightbox-next {
+  top: 50%;
+  transform: translateY(-50%);
+  width: 52px;
+  height: 52px;
+  font-size: 1.3rem;
+}
+
+.lightbox-prev { left: 24px; }
+.lightbox-next { right: 24px; }
+
 .unit-details {
   padding: 110px 0;
 }
@@ -1206,6 +1361,40 @@ section {
   section {
     padding: 80px 0;
   }
+
+  .gallery-preview {
+    grid-template-columns: 1fr;
+    grid-template-rows: 260px;
+  }
+
+  .gallery-preview-tile:not(:first-child) {
+    display: none;
+  }
+
+  .gallery-preview-tile:first-child {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .gallery-preview-tile:first-child .gallery-show-all {
+    display: inline-block;
+  }
+
+  .lightbox-close {
+    top: 14px;
+    right: 14px;
+    width: 38px;
+    height: 38px;
+  }
+
+  .lightbox-prev,
+  .lightbox-next {
+    width: 42px;
+    height: 42px;
+  }
+
+  .lightbox-prev { left: 10px; }
+  .lightbox-next { right: 10px; }
 
   .section-header {
     margin-bottom: 48px;

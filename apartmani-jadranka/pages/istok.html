@@ -42,15 +42,18 @@
   </section>
 
   <!-- ============ GALLERY ============ -->
+  <!-- The 5 "featured" photos (class="gallery-featured") are the ones shown in the
+       compact preview (js/gallery.js) before a visitor clicks "Show all photos" — move
+       the class to different tiles below to change which photos represent the apartment. -->
   <section class="container reveal" style="padding-bottom: 0;">
     <div class="gallery-grid">
       <!-- Swap each remaining placeholder's background with a real photo:
            style="background: url('../images/istok-living-1.jpg') center/cover no-repeat;" -->
-      <div class="gallery-item" style="background: url('../images/istok-cover.jpg') center/cover no-repeat;"><span data-i18n="istok.gallery.balcony">Balcony</span></div>
+      <div class="gallery-item gallery-featured" style="background: url('../images/istok-cover.jpg') center/cover no-repeat;"><span data-i18n="istok.gallery.balcony">Balcony</span></div>
       <div class="gallery-item"><span data-i18n="istok.gallery.balcony">Balcony</span></div>
+      <div class="gallery-item gallery-featured"><span data-i18n="istok.gallery.living">Living room</span></div>
       <div class="gallery-item"><span data-i18n="istok.gallery.living">Living room</span></div>
-      <div class="gallery-item"><span data-i18n="istok.gallery.living">Living room</span></div>
-      <div class="gallery-item"><span data-i18n="istok.gallery.bedroom1">Bedroom 1</span></div>
+      <div class="gallery-item gallery-featured"><span data-i18n="istok.gallery.bedroom1">Bedroom 1</span></div>
       <div class="gallery-item"><span data-i18n="istok.gallery.bedroom1">Bedroom 1</span></div>
       <div class="gallery-item"><span data-i18n="istok.gallery.bedroom2">Bedroom 2</span></div>
       <div class="gallery-item"><span data-i18n="istok.gallery.bedroom2">Bedroom 2</span></div>
@@ -58,9 +61,9 @@
       <div class="gallery-item"><span data-i18n="istok.gallery.bathroom1">Bathroom 1</span></div>
       <div class="gallery-item"><span data-i18n="istok.gallery.bathroom2">Bathroom 2</span></div>
       <div class="gallery-item"><span data-i18n="istok.gallery.bathroom2">Bathroom 2</span></div>
+      <div class="gallery-item gallery-featured"><span data-i18n="istok.gallery.kitchen">Kitchen</span></div>
       <div class="gallery-item"><span data-i18n="istok.gallery.kitchen">Kitchen</span></div>
-      <div class="gallery-item"><span data-i18n="istok.gallery.kitchen">Kitchen</span></div>
-      <div class="gallery-item"><span data-i18n="istok.gallery.exterior">Outdoor area</span></div>
+      <div class="gallery-item gallery-featured"><span data-i18n="istok.gallery.exterior">Outdoor area</span></div>
       <div class="gallery-item"><span data-i18n="istok.gallery.exterior">Outdoor area</span></div>
     </div>
   </section>
@@ -188,6 +191,7 @@
 
   <script src="../js/i18n.js"></script>
   <script src="../js/main.js"></script>
+  <script src="../js/gallery.js"></script>
   <script src="../js/calendar.js"></script>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
