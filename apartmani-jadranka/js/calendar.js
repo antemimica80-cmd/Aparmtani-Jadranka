@@ -9,9 +9,9 @@
 // (see .github/workflows/sync-airbnb-calendar.yml). This file only reads it.
 //
 // PRICING: Airbnb does not expose per-date rates via iCal, so seasonal prices
-// are defined manually below, per unit. Edit PRICING_CONFIG_BY_UNIT to match
-// real rates — ranges use "MM-DD" (month-day) and are matched against every
-// year.
+// are defined manually below. Edit PRICING_CONFIG_BY_UNIT to match real rates
+// — ranges use "MM-DD" (month-day) and are matched against every year. Stan
+// and Istok currently share one rate card (see the "istok" entry below).
 
 (function () {
   var PRICING_CONFIG_BY_UNIT = {
@@ -35,25 +35,11 @@
       defaultPrice: 70,
       defaultMinNights: 2
     },
-    // TODO: placeholder rates copied from Stan — replace with Istok's real
-    // seasonal rate card and minimum-stay rules once confirmed.
-    istok: {
-      currency: '€',
-      seasons: [
-        { key: 'offseason', start: '01-01', end: '04-15', price: 70, minNights: 2 },
-        { key: 'low', start: '04-16', end: '05-31', price: 105, minNights: 3 },
-        { key: 'mid', start: '06-01', end: '06-15', price: 115, minNights: 5 },
-        { key: 'midhigh', start: '06-16', end: '06-30', price: 145, minNights: 5 },
-        { key: 'high', start: '07-01', end: '08-31', price: 185, minNights: 7 },
-        { key: 'midhigh', start: '09-01', end: '09-15', price: 145, minNights: 5 },
-        { key: 'mid', start: '09-16', end: '09-30', price: 115, minNights: 5 },
-        { key: 'low', start: '10-01', end: '10-31', price: 95, minNights: 3 },
-        { key: 'offseason', start: '11-01', end: '12-31', price: 70, minNights: 2 }
-      ],
-      defaultPrice: 70,
-      defaultMinNights: 2
-    }
+    // Istok uses the same rate card as Stan (confirmed by the owner) —
+    // pointing at the same object keeps them from ever drifting apart.
+    istok: null
   };
+  PRICING_CONFIG_BY_UNIT.istok = PRICING_CONFIG_BY_UNIT.stan;
 
   var state = {
     unit: 'stan',
