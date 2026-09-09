@@ -913,7 +913,7 @@ section {
   text-align: left;
 }
 
-.inquiry-stan-form {
+.inquiry-form {
   margin-top: 28px;
   padding-top: 28px;
   border-top: 1px solid var(--color-sand-dark);
@@ -925,7 +925,7 @@ section {
   margin-bottom: 20px;
 }
 
-.inquiry-stan-form .btn {
+.inquiry-form .btn {
   width: 100%;
   text-align: center;
 }

@@ -1,36 +1,63 @@
-// Apartmani Jadranka — availability calendar & seasonal pricing (Stan).
+// Apartmani Jadranka — availability calendar & seasonal pricing.
 //
-// Blocked dates come from ../data/availability-stan.json, which is refreshed
-// daily by the "Sync Airbnb Calendar" GitHub Actions workflow (see
-// .github/workflows/sync-airbnb-calendar.yml). This file only reads it.
+// Shared by both unit pages (stan.html, istok.html) — each page's <body
+// data-unit="stan|istok"> tells this script which apartment it's rendering
+// for, which availability JSON to load, and which pricing table to use.
+//
+// Blocked dates come from ../data/availability-<unit>.json, which is
+// refreshed daily by the "Sync Airbnb Calendars" GitHub Actions workflow
+// (see .github/workflows/sync-airbnb-calendar.yml). This file only reads it.
 //
 // PRICING: Airbnb does not expose per-date rates via iCal, so seasonal prices
-// are defined manually below. Edit PRICING_CONFIG to match your real rates —
-// ranges use "MM-DD" (month-day) and are matched against every year.
+// are defined manually below, per unit. Edit PRICING_CONFIG_BY_UNIT to match
+// real rates — ranges use "MM-DD" (month-day) and are matched against every
+// year.
 
 (function () {
-  var PRICING_CONFIG = {
-    currency: '€',
-    // Month-day ranges (inclusive), matched against every year — must stay
-    // contiguous and cover the full year (no gaps/overlaps). Real rate card
-    // from the owner, except "offseason" (Nov–mid-Apr), which is a
-    // placeholder until the final price is confirmed.
-    seasons: [
-      { key: 'offseason', start: '01-01', end: '04-15', price: 70, minNights: 2 },
-      { key: 'low', start: '04-16', end: '05-31', price: 105, minNights: 3 },
-      { key: 'mid', start: '06-01', end: '06-15', price: 115, minNights: 5 },
-      { key: 'midhigh', start: '06-16', end: '06-30', price: 145, minNights: 5 },
-      { key: 'high', start: '07-01', end: '08-31', price: 185, minNights: 7 },
-      { key: 'midhigh', start: '09-01', end: '09-15', price: 145, minNights: 5 },
-      { key: 'mid', start: '09-16', end: '09-30', price: 115, minNights: 5 },
-      { key: 'low', start: '10-01', end: '10-31', price: 95, minNights: 3 },
-      { key: 'offseason', start: '11-01', end: '12-31', price: 70, minNights: 2 }
-    ],
-    defaultPrice: 70,
-    defaultMinNights: 2
+  var PRICING_CONFIG_BY_UNIT = {
+    stan: {
+      currency: '€',
+      // Month-day ranges (inclusive), matched against every year — must stay
+      // contiguous and cover the full year (no gaps/overlaps). Real rate card
+      // from the owner, except "offseason" (Nov–mid-Apr), which is a
+      // placeholder until the final price is confirmed.
+      seasons: [
+        { key: 'offseason', start: '01-01', end: '04-15', price: 70, minNights: 2 },
+        { key: 'low', start: '04-16', end: '05-31', price: 105, minNights: 3 },
+        { key: 'mid', start: '06-01', end: '06-15', price: 115, minNights: 5 },
+        { key: 'midhigh', start: '06-16', end: '06-30', price: 145, minNights: 5 },
+        { key: 'high', start: '07-01', end: '08-31', price: 185, minNights: 7 },
+        { key: 'midhigh', start: '09-01', end: '09-15', price: 145, minNights: 5 },
+        { key: 'mid', start: '09-16', end: '09-30', price: 115, minNights: 5 },
+        { key: 'low', start: '10-01', end: '10-31', price: 95, minNights: 3 },
+        { key: 'offseason', start: '11-01', end: '12-31', price: 70, minNights: 2 }
+      ],
+      defaultPrice: 70,
+      defaultMinNights: 2
+    },
+    // TODO: placeholder rates copied from Stan — replace with Istok's real
+    // seasonal rate card and minimum-stay rules once confirmed.
+    istok: {
+      currency: '€',
+      seasons: [
+        { key: 'offseason', start: '01-01', end: '04-15', price: 70, minNights: 2 },
+        { key: 'low', start: '04-16', end: '05-31', price: 105, minNights: 3 },
+        { key: 'mid', start: '06-01', end: '06-15', price: 115, minNights: 5 },
+        { key: 'midhigh', start: '06-16', end: '06-30', price: 145, minNights: 5 },
+        { key: 'high', start: '07-01', end: '08-31', price: 185, minNights: 7 },
+        { key: 'midhigh', start: '09-01', end: '09-15', price: 145, minNights: 5 },
+        { key: 'mid', start: '09-16', end: '09-30', price: 115, minNights: 5 },
+        { key: 'low', start: '10-01', end: '10-31', price: 95, minNights: 3 },
+        { key: 'offseason', start: '11-01', end: '12-31', price: 70, minNights: 2 }
+      ],
+      defaultPrice: 70,
+      defaultMinNights: 2
+    }
   };
 
   var state = {
+    unit: 'stan',
+    pricing: PRICING_CONFIG_BY_UNIT.stan,
     viewYear: null,
     viewMonth: null, // 0-11
     blocked: new Set(),
@@ -44,8 +71,8 @@
 
   function seasonForDate(date) {
     var mmdd = pad(date.getMonth() + 1) + '-' + pad(date.getDate());
-    for (var i = 0; i < PRICING_CONFIG.seasons.length; i++) {
-      var s = PRICING_CONFIG.seasons[i];
+    for (var i = 0; i < state.pricing.seasons.length; i++) {
+      var s = state.pricing.seasons[i];
       if (mmdd >= s.start && mmdd <= s.end) return s;
     }
     return null;
@@ -53,12 +80,12 @@
 
   function priceForDate(date) {
     var s = seasonForDate(date);
-    return s ? s.price : PRICING_CONFIG.defaultPrice;
+    return s ? s.price : state.pricing.defaultPrice;
   }
 
   function minNightsForDate(date) {
     var s = seasonForDate(date);
-    return s ? s.minNights : PRICING_CONFIG.defaultMinNights;
+    return s ? s.minNights : state.pricing.defaultMinNights;
   }
 
   function isPast(date) {
@@ -82,9 +109,10 @@
   }
 
   function loadAvailability() {
-    return fetch('../data/availability-stan.json', { cache: 'no-store' })
+    var path = '../data/availability-' + state.unit + '.json';
+    return fetch(path, { cache: 'no-store' })
       .then(function (res) {
-        if (!res.ok) throw new Error('availability-stan.json not found');
+        if (!res.ok) throw new Error(path + ' not found');
         return res.json();
       })
       .then(function (data) {
@@ -94,7 +122,7 @@
       .catch(function (err) {
         state.blocked = new Set();
         state.lastUpdated = null;
-        console.warn('Could not load availability-stan.json — showing calendar with no blocked dates.', err);
+        console.warn('Could not load ' + path + ' — showing calendar with no blocked dates.', err);
       });
   }
 
@@ -163,7 +191,7 @@
 
     if (updatedEl) {
       if (state.lastUpdated) {
-        updatedEl.textContent = t('stan.avail.updated') + ' ' + fmtDate(new Date(state.lastUpdated));
+        updatedEl.textContent = t('calendar.avail.updated') + ' ' + fmtDate(new Date(state.lastUpdated));
         updatedEl.style.display = '';
       } else {
         updatedEl.style.display = 'none';
@@ -188,25 +216,25 @@
     var t = window.Jadranka.t;
     var content = document.getElementById('booking-summary-content');
     var clearBtn = document.getElementById('booking-clear');
-    var form = document.getElementById('inquiry-stan-form');
+    var form = document.getElementById('availability-inquiry-form');
     if (!content) return;
 
     if (!state.checkin) {
-      content.innerHTML = '<p class="booking-prompt">' + t('stan.avail.prompt_checkin') + '</p>';
+      content.innerHTML = '<p class="booking-prompt">' + t('calendar.avail.prompt_checkin') + '</p>';
       clearBtn.style.display = 'none';
       form.style.display = 'none';
       return;
     }
 
     if (!state.checkout) {
-      content.innerHTML = '<p class="booking-prompt">' + t('stan.avail.prompt_checkout') + '</p>';
+      content.innerHTML = '<p class="booking-prompt">' + t('calendar.avail.prompt_checkout') + '</p>';
       clearBtn.style.display = '';
       form.style.display = 'none';
       return;
     }
 
     if (hasBlockedInRange(state.checkin, state.checkout)) {
-      content.innerHTML = '<p class="booking-prompt unavailable-msg">' + t('stan.avail.unavailable_msg') + '</p>';
+      content.innerHTML = '<p class="booking-prompt unavailable-msg">' + t('calendar.avail.unavailable_msg') + '</p>';
       clearBtn.style.display = '';
       form.style.display = 'none';
       return;
@@ -217,7 +245,7 @@
     // Minimum stay is governed by the check-in date's season.
     var required = minNightsForDate(state.checkin);
     if (nights < required) {
-      content.innerHTML = '<p class="booking-prompt unavailable-msg">' + t('stan.avail.min_nights_msg', { min: required }) + '</p>';
+      content.innerHTML = '<p class="booking-prompt unavailable-msg">' + t('calendar.avail.min_nights_msg', { min: required }) + '</p>';
       clearBtn.style.display = '';
       form.style.display = 'none';
       return;
@@ -233,9 +261,9 @@
 
     content.innerHTML =
       '<div class="booking-dates">' + fmtDate(state.checkin) + ' &rarr; ' + fmtDate(state.checkout) + '</div>' +
-      '<div class="booking-line"><span>' + nights + ' ' + t('stan.avail.nights') + '</span></div>' +
-      '<div class="booking-line"><span>' + t('stan.avail.price_per_night') + '</span><span>' + PRICING_CONFIG.currency + avgPerNight + '</span></div>' +
-      '<div class="booking-line total"><span>' + t('stan.avail.total') + '</span><span>' + PRICING_CONFIG.currency + total + '</span></div>';
+      '<div class="booking-line"><span>' + nights + ' ' + t('calendar.avail.nights') + '</span></div>' +
+      '<div class="booking-line"><span>' + t('calendar.avail.price_per_night') + '</span><span>' + state.pricing.currency + avgPerNight + '</span></div>' +
+      '<div class="booking-line total"><span>' + t('calendar.avail.total') + '</span><span>' + state.pricing.currency + total + '</span></div>';
     clearBtn.style.display = '';
 
     // Reveal the inquiry form and stash the computed values for submit —
@@ -249,8 +277,8 @@
   }
 
   function initInquiryForm() {
-    var form = document.getElementById('inquiry-stan-form');
-    var status = document.getElementById('stan-form-status');
+    var form = document.getElementById('availability-inquiry-form');
+    var status = document.getElementById('availability-form-status');
     if (!form) return;
 
     form.addEventListener('submit', function (e) {
@@ -265,7 +293,7 @@
       var message = form.elements['message'].value.trim();
 
       if (!name || !email || !phone) {
-        status.textContent = t('stan.avail.form_error');
+        status.textContent = t('calendar.avail.form_error');
         status.className = 'form-status visible error';
         return;
       }
@@ -275,20 +303,20 @@
       var nights = form.dataset.nights;
       var total = form.dataset.total;
 
-      var subject = t('stan.avail.email_subject', { unit: t('stan.display_name'), checkin: checkin, checkout: checkout });
+      var subject = t('calendar.avail.email_subject', { unit: t(state.unit + '.display_name'), checkin: checkin, checkout: checkout });
 
       var bodyLines = [
-        t('stan.avail.email_label_name') + ': ' + name,
-        t('stan.avail.email_label_email') + ': ' + email,
-        t('stan.avail.email_label_phone') + ': ' + phone,
-        t('stan.avail.email_label_checkin') + ': ' + checkin,
-        t('stan.avail.email_label_checkout') + ': ' + checkout,
-        t('stan.avail.email_label_nights') + ': ' + nights,
-        t('stan.avail.email_label_adults') + ': ' + adults,
-        t('stan.avail.email_label_children') + ': ' + children,
-        t('stan.avail.email_label_total') + ': ' + PRICING_CONFIG.currency + total,
+        t('calendar.avail.email_label_name') + ': ' + name,
+        t('calendar.avail.email_label_email') + ': ' + email,
+        t('calendar.avail.email_label_phone') + ': ' + phone,
+        t('calendar.avail.email_label_checkin') + ': ' + checkin,
+        t('calendar.avail.email_label_checkout') + ': ' + checkout,
+        t('calendar.avail.email_label_nights') + ': ' + nights,
+        t('calendar.avail.email_label_adults') + ': ' + adults,
+        t('calendar.avail.email_label_children') + ': ' + children,
+        t('calendar.avail.email_label_total') + ': ' + state.pricing.currency + total,
         '',
-        t('stan.avail.email_label_message') + ':',
+        t('calendar.avail.email_label_message') + ':',
         message || '-'
       ];
 
@@ -308,6 +336,9 @@
     var nextBtn = document.getElementById('calendar-next');
     var clearBtn = document.getElementById('booking-clear');
     if (!prevBtn) return; // calendar not present on this page
+
+    state.unit = document.body.dataset.unit || 'stan';
+    state.pricing = PRICING_CONFIG_BY_UNIT[state.unit] || PRICING_CONFIG_BY_UNIT.stan;
 
     var today = new Date();
     state.viewYear = today.getFullYear();
