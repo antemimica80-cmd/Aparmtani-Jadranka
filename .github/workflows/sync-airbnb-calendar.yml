@@ -1,18 +1,23 @@
-name: Sync Airbnb Calendar
+name: Sync Airbnb Calendars
 
-# Refreshes apartmani-jadranka/data/availability-stan.json once a day from the
-# Stan apartment's Airbnb iCal export, so the booking calendar on the site
-# always reflects current availability without any manual updates.
+# Refreshes apartmani-jadranka/data/availability-stan.json and
+# availability-istok.json once a day from each apartment's Airbnb iCal
+# export, so the booking calendars on the site always reflect current
+# availability without any manual updates.
 #
-# ONE-TIME SETUP:
-#   1. In Airbnb, go to Hosting -> your Stan listing -> Calendar -> Availability
-#      settings -> Sync calendars -> Export calendar, and copy the
-#      "Export Calendar" (iCal) URL.
+# ONE-TIME SETUP (repeat per apartment):
+#   1. In Airbnb, go to Hosting -> the listing (Stan or Istok) -> Calendar ->
+#      Availability settings -> Sync calendars -> Export calendar, and copy
+#      the "Export Calendar" (iCal) URL.
 #   2. In this repo, go to Settings -> Secrets and variables -> Actions ->
-#      New repository secret, name it AIRBNB_ICAL_STAN, and paste the URL.
-#   3. That's it — this workflow will start populating availability-stan.json
-#      on its next scheduled run, or trigger it manually via the Actions tab
-#      ("Run workflow") to sync immediately.
+#      New repository secret, and paste the URL as:
+#        - AIRBNB_ICAL_STAN  for the Stan listing
+#        - AIRBNB_ICAL_ISTOK for the Istok listing
+#   3. That's it — this workflow will start populating the matching
+#      availability-<unit>.json on its next scheduled run, or trigger it
+#      manually via the Actions tab ("Run workflow") to sync immediately.
+#      Each apartment syncs independently — you don't need both secrets set
+#      at once.
 
 on:
   schedule:
@@ -35,29 +40,39 @@ jobs:
         with:
           node-version: '22'
 
-      - name: Fetch and convert Airbnb calendar
+      - name: Fetch Stan calendar
         env:
           AIRBNB_ICAL_URL: ${{ secrets.AIRBNB_ICAL_STAN }}
           OUTPUT_PATH: apartmani-jadranka/data/availability-stan.json
         run: |
           if [ -z "$AIRBNB_ICAL_URL" ]; then
-            echo "AIRBNB_ICAL_STAN secret is not set yet — skipping sync."
-            echo "See the comment at the top of this workflow file for setup steps."
-            exit 0
+            echo "AIRBNB_ICAL_STAN secret is not set yet — skipping Stan sync."
+          else
+            node scripts/sync-airbnb-ical.mjs
           fi
-          node scripts/sync-airbnb-ical.mjs
+
+      - name: Fetch Istok calendar
+        env:
+          AIRBNB_ICAL_URL: ${{ secrets.AIRBNB_ICAL_ISTOK }}
+          OUTPUT_PATH: apartmani-jadranka/data/availability-istok.json
+        run: |
+          if [ -z "$AIRBNB_ICAL_URL" ]; then
+            echo "AIRBNB_ICAL_ISTOK secret is not set yet — skipping Istok sync."
+          else
+            node scripts/sync-airbnb-ical.mjs
+          fi
 
       - name: Commit updated availability
         id: commit
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          if git diff --quiet -- apartmani-jadranka/data/availability-stan.json; then
+          if git diff --quiet -- apartmani-jadranka/data/availability-stan.json apartmani-jadranka/data/availability-istok.json; then
             echo "No changes to commit."
             echo "changed=false" >> "$GITHUB_OUTPUT"
           else
-            git add apartmani-jadranka/data/availability-stan.json
-            git commit -m "Sync Stan availability from Airbnb"
+            git add apartmani-jadranka/data/availability-stan.json apartmani-jadranka/data/availability-istok.json
+            git commit -m "Sync Airbnb availability"
             git push
             echo "changed=true" >> "$GITHUB_OUTPUT"
           fi

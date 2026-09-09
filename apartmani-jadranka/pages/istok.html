@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
 </head>
-<body>
+<body data-unit="istok">
 
   <header class="site-header solid">
     <nav class="nav">
@@ -86,8 +86,80 @@
         <aside class="pricing-card reveal">
           <h3 data-i18n="istok.pricing_title">Pricing</h3>
           <p data-i18n="istok.pricing_desc">Rates vary by season and length of stay. Contact us for a personalized quote and current availability.</p>
-          <a href="../index.html#contact" class="btn btn-primary" data-i18n="istok.pricing_cta">Contact for Rates</a>
+          <a href="#availability" class="btn btn-primary" data-i18n="calendar.avail.cta">Check Availability</a>
           <p class="pricing-note" data-i18n="istok.pricing_note">No booking fees — reserve directly with our family.</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ AVAILABILITY & PRICING ============ -->
+  <section id="availability" class="availability-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow" data-i18n="calendar.avail.eyebrow">Booking</span>
+        <h2 class="section-title" data-i18n="calendar.avail.title">Availability &amp; Pricing</h2>
+        <p class="section-subtitle" data-i18n="calendar.avail.subtitle">Select your check-in and check-out dates to see pricing and availability.</p>
+      </div>
+
+      <div class="availability-grid reveal">
+        <div class="calendar-widget">
+          <div class="calendar-header">
+            <button type="button" class="calendar-nav" id="calendar-prev" data-i18n-aria-label="calendar.avail.prev" aria-label="Previous month">&larr;</button>
+            <span class="calendar-month-label" id="calendar-month-label"></span>
+            <button type="button" class="calendar-nav" id="calendar-next" data-i18n-aria-label="calendar.avail.next" aria-label="Next month">&rarr;</button>
+          </div>
+          <div class="calendar-weekdays" id="calendar-weekdays"></div>
+          <div class="calendar-days" id="calendar-days"></div>
+          <div class="calendar-legend">
+            <span class="legend-item"><span class="legend-dot available"></span><span data-i18n="calendar.avail.legend_available">Available</span></span>
+            <span class="legend-item"><span class="legend-dot unavailable"></span><span data-i18n="calendar.avail.legend_unavailable">Unavailable</span></span>
+            <span class="legend-item"><span class="legend-dot selected"></span><span data-i18n="calendar.avail.legend_selected">Selected</span></span>
+          </div>
+          <p class="calendar-updated" id="calendar-updated"></p>
+        </div>
+
+        <aside class="booking-summary">
+          <div id="booking-summary-content">
+            <p class="booking-prompt" data-i18n="calendar.avail.prompt_checkin">Select a check-in date</p>
+          </div>
+          <button type="button" class="text-link booking-clear" id="booking-clear" data-i18n="calendar.avail.clear" style="display: none;">Clear selection</button>
+          <p class="pricing-note" data-i18n="calendar.avail.note">Prices are indicative; final price is confirmed at booking.</p>
+
+          <!-- Shown only once valid, available dates meeting the season's minimum stay are selected (see js/calendar.js) -->
+          <form id="availability-inquiry-form" class="inquiry-form" novalidate style="display: none;">
+            <h3 class="inquiry-form-title" data-i18n="calendar.avail.inquiry_title">Send an Inquiry for These Dates</h3>
+
+            <div class="form-group">
+              <label for="avail-name" data-i18n="contact.form_name">Full Name</label>
+              <input type="text" id="avail-name" name="name" data-i18n-placeholder="contact.form_name_ph" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+              <label for="avail-email" data-i18n="contact.form_email">Email</label>
+              <input type="email" id="avail-email" name="email" placeholder="you@example.com" required>
+            </div>
+            <div class="form-group">
+              <label for="avail-phone" data-i18n="calendar.avail.form_phone">Phone</label>
+              <input type="tel" id="avail-phone" name="phone" data-i18n-placeholder="calendar.avail.form_phone_ph" placeholder="Your phone number" required>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="avail-adults" data-i18n="calendar.avail.form_adults">Number of adults</label>
+                <input type="number" id="avail-adults" name="adults" min="1" value="1" required>
+              </div>
+              <div class="form-group">
+                <label for="avail-children" data-i18n="calendar.avail.form_children">Number of children</label>
+                <input type="number" id="avail-children" name="children" min="0" value="0">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="avail-message" data-i18n="contact.form_message">Message</label>
+              <textarea id="avail-message" name="message" data-i18n-placeholder="calendar.avail.form_message_ph" placeholder="Notes, special requests..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" data-i18n="contact.form_submit">Send Inquiry</button>
+            <div id="availability-form-status" class="form-status" role="status"></div>
+          </form>
         </aside>
       </div>
     </div>
@@ -103,6 +175,7 @@
 
   <script src="../js/i18n.js"></script>
   <script src="../js/main.js"></script>
+  <script src="../js/calendar.js"></script>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
