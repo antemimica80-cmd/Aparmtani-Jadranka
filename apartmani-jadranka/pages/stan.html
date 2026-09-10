@@ -177,7 +177,7 @@
 
         <aside class="pricing-card reveal">
           <h3 data-i18n="istok.pricing_title">Pricing</h3>
-          <p data-i18n="istok.pricing_desc">Rates vary by season and length of stay. Contact us for a personalized quote and current availability.</p>
+          <p data-i18n="istok.pricing_desc">Rates vary by season and length of stay. Select your check-in and check-out dates to see the exact price and availability.</p>
           <a href="#availability" class="btn btn-primary" data-i18n="calendar.avail.cta">Check Availability</a>
           <p class="pricing-note" data-i18n="istok.pricing_note">No booking fees — reserve directly with our family.</p>
         </aside>
@@ -198,11 +198,20 @@
         <div class="calendar-widget">
           <div class="calendar-header">
             <button type="button" class="calendar-nav" id="calendar-prev" data-i18n-aria-label="calendar.avail.prev" aria-label="Previous month">&larr;</button>
-            <span class="calendar-month-label" id="calendar-month-label"></span>
+            <div class="calendar-months">
+              <div class="calendar-month">
+                <span class="calendar-month-label" id="calendar-month-label"></span>
+                <div class="calendar-weekdays" id="calendar-weekdays"></div>
+                <div class="calendar-days" id="calendar-days"></div>
+              </div>
+              <div class="calendar-month calendar-month-second">
+                <span class="calendar-month-label" id="calendar-month-label-2"></span>
+                <div class="calendar-weekdays" id="calendar-weekdays-2"></div>
+                <div class="calendar-days" id="calendar-days-2"></div>
+              </div>
+            </div>
             <button type="button" class="calendar-nav" id="calendar-next" data-i18n-aria-label="calendar.avail.next" aria-label="Next month">&rarr;</button>
           </div>
-          <div class="calendar-weekdays" id="calendar-weekdays"></div>
-          <div class="calendar-days" id="calendar-days"></div>
           <div class="calendar-legend">
             <span class="legend-item"><span class="legend-dot available"></span><span data-i18n="calendar.avail.legend_available">Available</span></span>
             <span class="legend-item"><span class="legend-dot unavailable"></span><span data-i18n="calendar.avail.legend_unavailable">Unavailable</span></span>
