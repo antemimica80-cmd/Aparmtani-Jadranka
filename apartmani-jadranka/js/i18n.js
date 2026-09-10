@@ -128,8 +128,8 @@
     'stan.gallery.exterior': { hr: 'Vanjski prostor', en: 'Outdoor area' },
     'stan.about_title': { hr: 'Prostor, tišina i pogled koji pamtite', en: "Space, Quiet, and a View You'll Remember" },
     'stan.sleeps': { hr: '4 gosta · 2 spavaće sobe · 2 kupaonice', en: '4 guests · 2 bedrooms · 2 bathrooms' },
-    'stan.desc_p1': { hr: 'Smješten na drugom katu obiteljske kuće, prostrani stan od 90 m² nudi udobnost, privatnost i nezaboravan pogled. Velika terasa okrenuta jugozapadu (oko 50 m²) savršena je za objedovanje na otvorenom i uživanje u dalmatinskom suncu.', en: 'Set on the second floor of a family house, this spacious 90 m² apartment offers comfort, privacy, and an unforgettable view. The large southwest-facing terrace (about 50 m²) is perfect for outdoor dining and soaking up the Dalmatian sun.' },
-    'stan.desc_p2': { hr: 'Stan ima dvije spavaće sobe — jednu s bračnim krevetom, dodatnim krevetom, privatnom kupaonicom i izlazom na terasu, te drugu okrenutu borovima za mirne i hladne noći — dvije kupaonice, potpuno opremljenu kuhinju i svijetli otvoreni dnevni boravak s pogledom na Jadransko more, otoke Brač i Hvar, poluotok Pelješac i planinu Biokovo. Nalazi se u mirnom području, samo 170 metara od mora.', en: 'The apartment has two bedrooms — one with a double bed, an extra bed, a private bathroom, and terrace access, and another facing the pine trees for quiet, cool nights — two bathrooms, a fully equipped kitchen, and a bright open living room looking out over the Adriatic Sea, the islands of Brač and Hvar, the Pelješac peninsula, and Mount Biokovo. Set in a quiet area, just 170 meters from the sea.' },
+    'stan.desc_p1': { hr: 'Smješten na drugom katu obiteljske kuće, prostrani stan od 90 m² nudi udobnost, privatnost i nezaboravan pogled. Velika terasa okrenuta jugozapadu (oko 50 m²), opremljena stolom za blagovanje i sjedećom garniturom za odmor, savršena je za objedovanje na otvorenom i uživanje u dalmatinskom suncu.', en: 'Set on the second floor of a family house, this spacious 90 m² apartment offers comfort, privacy, and unforgettable views. The large southwest-facing terrace (about 50 m²), furnished with a dining table and lounge seating, is perfect for outdoor dining, relaxing, and soaking up the Dalmatian sun.' },
+    'stan.desc_p2': { hr: 'Stan ima dvije spavaće sobe — jednu s bračnim krevetom, dodatnim krevetom, privatnom kupaonicom i izlazom na terasu, te drugu okrenutu borovima za mirne i hladne noći — dvije kupaonice, potpuno opremljenu kuhinju i svijetli otvoreni dnevni boravak s pogledom na Jadransko more, otoke Brač i Hvar, poluotok Pelješac i planinu Biokovo. Nalazi se u mirnom području ispod glavne ceste, samo 170 metara od mora.', en: 'The apartment has two bedrooms — one with a double bed, an extra bed, a private bathroom, and terrace access, and another facing the pine trees for quiet, cool nights — two bathrooms, a fully equipped kitchen, and a bright, open living room looking out over the Adriatic Sea, the islands of Brač and Hvar, the Pelješac peninsula, and Mount Biokovo. Set in a peaceful area below the main road, just 170 meters from the sea.' },
     'stan.amenities_heading': { hr: 'Sadržaji', en: 'Amenities' },
 
     'stan.cat.kitchen': { hr: 'Kuhinja', en: 'Kitchen' },
@@ -170,6 +170,7 @@
 
     'stan.cat.location': { hr: 'Lokacija', en: 'Location' },
     'stan.cat.location.1': { hr: 'Pristup obližnjoj plaži (170 m)', en: 'Access to nearby beach (170 m)' },
+    'stan.cat.location.2': { hr: 'Mirno područje ispod glavne ceste', en: 'Peaceful area below the main road' },
 
     'stan.cat.other': { hr: 'Ostalo', en: 'Other' },
     'stan.cat.other.1': { hr: 'Besplatan parking u sklopu objekta', en: 'Free parking on premises' },
