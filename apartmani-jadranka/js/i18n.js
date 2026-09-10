@@ -61,7 +61,7 @@
     'contact.eyebrow': { hr: 'Kontaktirajte nas', en: 'Get in Touch' },
     'contact.title': { hr: 'Poruka domaćinu', en: 'Message Your Host' },
     'contact.subtitle': { hr: 'Imate pitanja o svom boravku? Pošaljite nam poruku i odgovorit ćemo direktno na vaš email.', en: "Questions about your stay? Send us a message and we'll reply directly to your email." },
-    'contact.host_name': { hr: 'Ante', en: 'Ante' },
+    'contact.host_name': { hr: 'Jadranka', en: 'Jadranka' },
     'contact.host_role': { hr: 'Vaš domaćin', en: 'Your Host' },
     'contact.host_blurb': { hr: 'Obiteljski vodimo apartmane Jadranka i rado ćemo odgovoriti na sva vaša pitanja o smještaju i dolasku.', en: 'We run Apartmani Jadranka as a family and are always happy to answer your questions about the apartments and your stay.' },
     'contact.message_host_cta': { hr: 'Poruka domaćinu', en: 'Message Host' },
