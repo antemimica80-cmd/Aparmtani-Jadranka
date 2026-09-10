@@ -9,18 +9,20 @@ Photos already wired in:
   `css/style.css`). To swap it for a different photo, just replace the file (keep the same
   name) or edit the `background-image` inline style on `.hero-photo` in `index.html`.
 
-Istok's full 16-photo gallery is wired in (`istok-cover.jpg`, `istok-balcony-2.jpg`,
-`istok-living-1/2.jpg`, `istok-bedroom1-1/2.jpg`, `istok-bedroom2-1/2.jpg`,
-`istok-bathroom1-1/2.jpg`, `istok-bathroom2-1/2.jpg`, `istok-kitchen-1/2.jpg`,
-`istok-exterior-1/2.jpg`), all resized/compressed from the owner's photoshoot (max 1800px,
-~76% JPEG quality — keeps the gallery under ~3 MB total instead of the ~19 MB originals).
+Both units' full 16-photo galleries are wired in — Istok (`istok-cover.jpg`,
+`istok-balcony-2.jpg`, `istok-living-1/2.jpg`, `istok-bedroom1-1/2.jpg`,
+`istok-bedroom2-1/2.jpg`, `istok-bathroom1-1/2.jpg`, `istok-bathroom2-1/2.jpg`,
+`istok-kitchen-1/2.jpg`, `istok-exterior-1/2.jpg`) and Stan (`stan-cover.jpg`,
+`stan-terrace-2.jpg`, `stan-living-1/2.jpg`, `stan-bedroom1-1/2.jpg`,
+`stan-bedroom2-1/2.jpg`, `stan-bathroom1-1/2.jpg`, `stan-bathroom2-1/2.jpg`,
+`stan-kitchen-1/2.jpg`, `stan-exterior-1/2.jpg`). All resized/compressed from the owner's
+photoshoots (Pillow: longest side ~1800px, JPEG quality ~76) — keeps each gallery under
+~3.5 MB total instead of 15-20+ MB for the raw originals.
 
-Stan's gallery still needs its remaining photos — drop them in this folder using the same
-naming pattern (`stan-` instead of `istok-`, `stan-terrace-*` instead of `stan-balcony-*`)
-and add an inline style on the matching `<div class="gallery-item">` tile in
-`pages/stan.html`: `style="background: url('../images/stan-living-1.jpg') center/cover
-no-repeat;"`. Resize new photos the same way before adding them (Pillow: resize so the
-longest side is ~1800px, save as JPEG quality ~76) so the page doesn't ship multi-MB images.
+To swap any photo later, replace the file (keep the same name) or edit the
+`background-image` inline style on the matching `.gallery-item` tile in `pages/stan.html` /
+`pages/istok.html`. Resize new photos the same way before adding them so the page doesn't
+ship multi-MB images.
 
 ## Gallery preview + lightbox (js/gallery.js)
 
