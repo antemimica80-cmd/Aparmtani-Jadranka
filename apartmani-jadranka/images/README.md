@@ -9,21 +9,18 @@ Photos already wired in:
   `css/style.css`). To swap it for a different photo, just replace the file (keep the same
   name) or edit the `background-image` inline style on `.hero-photo` in `index.html`.
 
-Drop more real photos in this folder, then swap the remaining placeholder gradients for them:
+Istok's full 16-photo gallery is wired in (`istok-cover.jpg`, `istok-balcony-2.jpg`,
+`istok-living-1/2.jpg`, `istok-bedroom1-1/2.jpg`, `istok-bedroom2-1/2.jpg`,
+`istok-bathroom1-1/2.jpg`, `istok-bathroom2-1/2.jpg`, `istok-kitchen-1/2.jpg`,
+`istok-exterior-1/2.jpg`), all resized/compressed from the owner's photoshoot (max 1800px,
+~76% JPEG quality — keeps the gallery under ~3 MB total instead of the ~19 MB originals).
 
-- **More gallery photos** (Stan/Istok pages): each unit page's gallery has 8 categories,
-  2 photos each: terrace (Stan) / balcony (Istok), living room, bedroom 1, bedroom 2,
-  bathroom 1, bathroom 2, kitchen, and outdoor area (garden/parking/exterior). Add an inline
-  style on the matching `<div class="gallery-item">` tile in `pages/stan.html` /
-  `pages/istok.html`: `style="background: url('../images/stan-living-1.jpg') center/cover
-  no-repeat;"`
-
-Suggested naming per apartment (16 photos total): `stan-terrace-1.jpg`, `stan-terrace-2.jpg`,
-`stan-living-1.jpg`, `stan-living-2.jpg`, `stan-bedroom1-1.jpg`, `stan-bedroom1-2.jpg`,
-`stan-bedroom2-1.jpg`, `stan-bedroom2-2.jpg`, `stan-bathroom1-1.jpg`, `stan-bathroom1-2.jpg`,
-`stan-bathroom2-1.jpg`, `stan-bathroom2-2.jpg`, `stan-kitchen-1.jpg`, `stan-kitchen-2.jpg`,
-`stan-exterior-1.jpg`, `stan-exterior-2.jpg` (same pattern with `istok-` and `istok-balcony-*`
-instead of `istok-terrace-*` for the Istok page).
+Stan's gallery still needs its remaining photos — drop them in this folder using the same
+naming pattern (`stan-` instead of `istok-`, `stan-terrace-*` instead of `stan-balcony-*`)
+and add an inline style on the matching `<div class="gallery-item">` tile in
+`pages/stan.html`: `style="background: url('../images/stan-living-1.jpg') center/cover
+no-repeat;"`. Resize new photos the same way before adding them (Pillow: resize so the
+longest side is ~1800px, save as JPEG quality ~76) so the page doesn't ship multi-MB images.
 
 ## Gallery preview + lightbox (js/gallery.js)
 
