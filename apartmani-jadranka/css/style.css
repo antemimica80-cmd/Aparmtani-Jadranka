@@ -154,18 +154,6 @@ section {
   color: var(--color-sea-deep);
 }
 
-.btn-secondary {
-  background-color: transparent;
-  border-color: rgba(255, 255, 255, 0.7);
-  color: var(--color-white);
-}
-
-.btn-secondary:hover {
-  background-color: var(--color-white);
-  color: var(--color-sea-deep);
-  border-color: var(--color-white);
-}
-
 .btn-outline {
   background-color: transparent;
   border-color: var(--color-sea-deep);
@@ -428,13 +416,6 @@ section {
   max-width: 480px;
   margin: 0 auto 44px;
   line-height: 1.8;
-}
-
-.hero-actions {
-  display: flex;
-  gap: 18px;
-  justify-content: center;
-  flex-wrap: wrap;
 }
 
 .scroll-cue {
@@ -1716,14 +1697,5 @@ body.modal-open {
   .feature-card:first-child {
     border-top: none;
     padding-top: 0;
-  }
-
-  .hero-actions {
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .hero-actions .btn {
-    width: 100%;
   }
 }

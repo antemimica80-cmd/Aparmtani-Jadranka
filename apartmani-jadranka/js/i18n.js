@@ -26,8 +26,6 @@
     // --- Homepage: Hero ---
     'home.hero.eyebrow': { hr: 'Mimice · Dalmatinska obala', en: 'Mimice · Dalmatian Coast' },
     'home.hero.subtitle': { hr: 'Obiteljski apartmani na Jadranu, nekoliko koraka od mora.', en: 'Family-run apartments on the Adriatic, steps from the sea.' },
-    'home.hero.cta_explore': { hr: 'Istraži', en: 'Explore' },
-    'home.hero.cta_check': { hr: 'Provjeri dostupnost', en: 'Check Availability' },
 
     // --- Homepage: Units overview ---
     'home.units.eyebrow': { hr: 'Naši apartmani', en: 'Our Apartments' },
