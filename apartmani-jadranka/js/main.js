@@ -11,18 +11,31 @@ document.addEventListener('DOMContentLoaded', function () {
 function initNavToggle() {
   var toggle = document.querySelector('.nav-toggle');
   var links = document.querySelector('.nav-links');
+  var backdrop = document.querySelector('.nav-backdrop');
   if (!toggle || !links) return;
 
-  toggle.addEventListener('click', function () {
-    var isOpen = links.classList.toggle('open');
+  function setOpen(isOpen) {
+    links.classList.toggle('open', isOpen);
+    if (backdrop) backdrop.classList.toggle('open', isOpen);
+    document.body.classList.toggle('nav-open', isOpen);
+    document.documentElement.classList.toggle('nav-open', isOpen);
     toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  }
+
+  toggle.addEventListener('click', function () {
+    setOpen(!links.classList.contains('open'));
+  });
+
+  if (backdrop) {
+    backdrop.addEventListener('click', function () { setOpen(false); });
+  }
+
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape' && links.classList.contains('open')) setOpen(false);
   });
 
   links.querySelectorAll('a').forEach(function (link) {
-    link.addEventListener('click', function () {
-      links.classList.remove('open');
-      toggle.setAttribute('aria-expanded', 'false');
-    });
+    link.addEventListener('click', function () { setOpen(false); });
   });
 }
 
@@ -80,6 +93,7 @@ function initHostMessage() {
   function openModal() {
     modal.hidden = false;
     document.body.classList.add('modal-open');
+    document.documentElement.classList.add('modal-open');
     var firstField = form.elements['name'];
     if (firstField) firstField.focus();
   }
@@ -87,6 +101,7 @@ function initHostMessage() {
   function closeModal() {
     modal.hidden = true;
     document.body.classList.remove('modal-open');
+    document.documentElement.classList.remove('modal-open');
   }
 
   openBtn.addEventListener('click', openModal);

@@ -141,12 +141,14 @@
     render();
     lightboxEl.classList.add('open');
     document.body.classList.add('lightbox-locked');
+    document.documentElement.classList.add('lightbox-locked');
   }
 
   function closeLightbox() {
     if (!lightboxEl) return;
     lightboxEl.classList.remove('open');
     document.body.classList.remove('lightbox-locked');
+    document.documentElement.classList.remove('lightbox-locked');
   }
 
   document.addEventListener('jadranka:languagechange', function () {

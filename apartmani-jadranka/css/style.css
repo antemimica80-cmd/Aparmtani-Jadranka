@@ -336,6 +336,28 @@ section {
   background-color: var(--color-sea-deep);
 }
 
+.nav-toggle[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(8.5px) rotate(45deg);
+}
+
+.nav-toggle[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-8.5px) rotate(-45deg);
+}
+
+/* The hamburger turns into an X above the drawer, so it needs the
+   drawer's (dark-on-light) color regardless of header scroll state. */
+.nav-toggle[aria-expanded="true"] span {
+  background-color: var(--color-sea-deep) !important;
+}
+
+.nav-backdrop {
+  display: none;
+}
+
 /* ===========================================================
    Hero
    =========================================================== */
@@ -710,6 +732,10 @@ section {
   display: flex;
 }
 
+/* html, not just body, because html is the actual scrolling element on
+   some mobile browsers — locking only body leaves the page scrollable
+   behind a "fixed" overlay. */
+html.lightbox-locked,
 body.lightbox-locked {
   overflow: hidden;
 }
@@ -1185,13 +1211,6 @@ body.lightbox-locked {
   align-items: start;
 }
 
-.contact-form {
-  background-color: var(--color-white);
-  border-radius: var(--radius-lg);
-  padding: 44px;
-  box-shadow: var(--shadow-soft);
-}
-
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1356,6 +1375,7 @@ body.lightbox-locked {
   color: var(--color-sea-deep);
 }
 
+html.modal-open,
 body.modal-open {
   overflow: hidden;
 }
@@ -1574,11 +1594,16 @@ body.modal-open {
     margin-bottom: 48px;
   }
 
+  /* height is set explicitly (not via top+bottom) because the header uses
+     backdrop-filter when scrolled/solid, which makes it a new containing
+     block for fixed descendants — bottom:0 would then resolve against the
+     header's own (short) box instead of the viewport. */
   .nav-links {
     position: fixed;
     top: 0;
     right: 0;
-    bottom: 0;
+    height: 100vh;
+    height: 100dvh;
     width: 78%;
     max-width: 320px;
     background-color: var(--color-stone);
@@ -1590,10 +1615,41 @@ body.modal-open {
     box-shadow: -10px 0 40px rgba(27, 75, 107, 0.15);
     transform: translateX(100%);
     transition: transform 0.35s ease;
+    z-index: 1001;
   }
 
   .nav-links.open {
     transform: translateX(0);
+  }
+
+  .nav-backdrop {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    height: 100dvh;
+    background-color: rgba(15, 32, 45, 0.5);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.35s ease, visibility 0.35s ease;
+  }
+
+  .nav-backdrop.open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .nav-toggle {
+    position: relative;
+    z-index: 1002;
+  }
+
+  html.nav-open,
+  body.nav-open {
+    overflow: hidden;
   }
 
   .nav-links a {
@@ -1669,9 +1725,5 @@ body.modal-open {
 
   .hero-actions .btn {
     width: 100%;
-  }
-
-  .contact-form {
-    padding: 28px;
   }
 }
