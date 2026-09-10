@@ -1,11 +1,11 @@
 // Apartmani Jadranka — shared site behavior
-// Mobile nav toggle, scroll effects, and inquiry form handling (no backend yet).
+// Mobile nav toggle, scroll effects, and the "Message Host" modal.
 
 document.addEventListener('DOMContentLoaded', function () {
   initNavToggle();
   initHeaderScroll();
   initScrollReveal();
-  initInquiryForm();
+  initHostMessage();
 });
 
 function initNavToggle() {
@@ -63,40 +63,86 @@ function initScrollReveal() {
   targets.forEach(function (el) { observer.observe(el); });
 }
 
-function initInquiryForm() {
-  var form = document.getElementById('inquiry-form');
-  var status = document.getElementById('form-status');
-  if (!form || !status) return;
+// Web3Forms delivers the "Message Host" submissions straight to the owner's
+// inbox with no backend of our own. Get a free access key at
+// https://web3forms.com (just enter the inbox email you want messages sent
+// to — no account needed) and paste it below.
+var WEB3FORMS_ACCESS_KEY = 'YOUR_WEB3FORMS_ACCESS_KEY';
+
+function initHostMessage() {
+  var openBtn = document.getElementById('message-host-btn');
+  var modal = document.getElementById('host-message-modal');
+  var closeBtn = document.getElementById('host-modal-close');
+  var form = document.getElementById('host-message-form');
+  var status = document.getElementById('host-message-status');
+  if (!openBtn || !modal || !form || !status) return;
+
+  function openModal() {
+    modal.hidden = false;
+    document.body.classList.add('modal-open');
+    var firstField = form.elements['name'];
+    if (firstField) firstField.focus();
+  }
+
+  function closeModal() {
+    modal.hidden = true;
+    document.body.classList.remove('modal-open');
+  }
+
+  openBtn.addEventListener('click', openModal);
+  closeBtn.addEventListener('click', closeModal);
+  modal.addEventListener('click', function (event) {
+    if (event.target === modal) closeModal();
+  });
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape' && !modal.hidden) closeModal();
+  });
 
   form.addEventListener('submit', function (event) {
     event.preventDefault();
 
+    var t = window.Jadranka ? window.Jadranka.t : function (key) { return key; };
     var data = {
       name: form.elements['name'].value.trim(),
       email: form.elements['email'].value.trim(),
-      checkin: form.elements['checkin'].value,
-      checkout: form.elements['checkout'].value,
-      unit: form.elements['unit'].value,
       message: form.elements['message'].value.trim()
     };
-
-    var t = window.Jadranka ? window.Jadranka.t : function (key) { return key; };
 
     if (!data.name || !data.email || !data.message) {
       showStatus(status, t('contact.form_error'), 'error');
       return;
     }
 
-    // No backend is connected yet. The captured fields below are ready to be
-    // sent to an email service (e.g. Formspree, EmailJS) or your booking
-    // tool's API — replace this block with that call when ready.
-    console.log('Inquiry captured:', data);
+    var submitBtn = form.querySelector('button[type="submit"]');
+    if (submitBtn) submitBtn.disabled = true;
+    showStatus(status, t('contact.form_sending'), 'sending');
 
-    var unitNameKeys = { Stan: 'stan.display_name', Istok: 'istok.display_name' };
-    var unitLabel = unitNameKeys[data.unit] ? t(unitNameKeys[data.unit]) : t('contact.form_unit_generic');
-
-    showStatus(status, t('contact.form_success', { name: data.name, unit: unitLabel }), 'success');
-    form.reset();
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify({
+        access_key: WEB3FORMS_ACCESS_KEY,
+        subject: 'New message from Apartmani Jadranka website',
+        from_name: data.name,
+        name: data.name,
+        email: data.email,
+        message: data.message
+      })
+    })
+      .then(function (response) { return response.json(); })
+      .then(function (result) {
+        if (submitBtn) submitBtn.disabled = false;
+        if (result.success) {
+          showStatus(status, t('contact.form_success', { name: data.name }), 'success');
+          form.reset();
+        } else {
+          showStatus(status, t('contact.form_send_error'), 'error');
+        }
+      })
+      .catch(function () {
+        if (submitBtn) submitBtn.disabled = false;
+        showStatus(status, t('contact.form_send_error'), 'error');
+      });
   });
 }
 

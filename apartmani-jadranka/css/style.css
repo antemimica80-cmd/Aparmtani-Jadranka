@@ -1262,6 +1262,143 @@ body.lightbox-locked {
   color: #9c3a26;
 }
 
+.form-status.sending {
+  display: block;
+  background-color: rgba(255, 255, 255, 0.12);
+  color: var(--color-text-light);
+}
+
+.host-card {
+  background-color: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: 44px;
+  box-shadow: var(--shadow-soft);
+  text-align: center;
+}
+
+.host-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background-color: var(--color-sea-deep);
+  color: var(--color-white);
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+
+.host-name {
+  color: var(--color-sea-deep);
+  font-size: 1.4rem;
+  margin-bottom: 4px;
+}
+
+.host-role {
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-light);
+  margin-bottom: 20px;
+}
+
+.host-blurb {
+  color: var(--color-text-light);
+  font-weight: 300;
+  margin-bottom: 28px;
+}
+
+/* ===========================================================
+   Message Host modal
+   =========================================================== */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(15, 32, 45, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 1000;
+}
+
+.modal-overlay[hidden] {
+  display: none;
+}
+
+.modal-dialog {
+  position: relative;
+  background-color: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: 44px;
+  max-width: 460px;
+  width: 100%;
+  box-shadow: var(--shadow-soft);
+}
+
+.modal-dialog h3 {
+  color: var(--color-sea-deep);
+  margin-bottom: 24px;
+  padding-right: 24px;
+}
+
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  border: none;
+  background: none;
+  font-size: 1.6rem;
+  line-height: 1;
+  color: var(--color-text-light);
+  cursor: pointer;
+}
+
+.modal-close:hover {
+  color: var(--color-sea-deep);
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+/* ===========================================================
+   Local area guide (Riviera)
+   =========================================================== */
+
+.riviera-section {
+  background-color: var(--color-sand);
+}
+
+.riviera-categories {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.riviera-category {
+  background-color: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  text-align: center;
+}
+
+.riviera-category h3 {
+  color: var(--color-sea-deep);
+  font-size: 1.15rem;
+  margin-bottom: 12px;
+}
+
+.riviera-placeholder {
+  color: var(--color-text-light);
+  font-weight: 300;
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
 .contact-info {
   display: flex;
   flex-direction: column;
@@ -1382,6 +1519,10 @@ body.lightbox-locked {
   }
 
   .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .riviera-categories {
     grid-template-columns: 1fr;
   }
 
