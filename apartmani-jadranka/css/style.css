@@ -834,7 +834,7 @@ body.lightbox-locked {
   border-bottom: 1px solid var(--color-sand-dark);
 }
 
-/* --- Categorized amenities (Stan) --- */
+/* --- Categorized amenities (Stan, Istok) --- */
 .amenities-categories {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -860,6 +860,17 @@ body.lightbox-locked {
   font-size: 0.92rem;
   padding-bottom: 10px;
   margin-bottom: 10px;
+}
+
+.amenities-heading-not-included {
+  color: var(--color-text-light);
+}
+
+.amenities-list-not-included li {
+  color: var(--color-text-light);
+  text-decoration: line-through;
+  text-decoration-color: var(--color-sand-dark);
+  border-bottom-color: var(--color-sand-dark);
 }
 
 /* ===========================================================
