@@ -883,7 +883,7 @@ body.lightbox-locked {
 
 .availability-grid {
   display: grid;
-  grid-template-columns: 1.2fr 1fr;
+  grid-template-columns: 1.7fr 1fr;
   gap: 56px;
   align-items: start;
 }
@@ -897,15 +897,40 @@ body.lightbox-locked {
 
 .calendar-header {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
+  gap: 16px;
   margin-bottom: 24px;
+}
+
+.calendar-nav {
+  flex: none;
+  margin-top: 6px;
+}
+
+/* Two months side by side (Airbnb-style) so a check-in near month's end
+   and a check-out early the next month are both visible at once — no
+   navigation needed in between. Collapses to one month on narrow screens
+   (see the max-width: 720px override below). */
+.calendar-months {
+  display: flex;
+  flex: 1;
+  gap: 32px;
+  min-width: 0;
+}
+
+.calendar-month {
+  flex: 1;
+  min-width: 0;
 }
 
 .calendar-month-label {
   font-family: var(--font-display);
   font-size: 1.3rem;
   color: var(--color-sea-deep);
+  display: block;
+  text-align: center;
+  margin-bottom: 16px;
 }
 
 .calendar-nav {
@@ -1468,6 +1493,12 @@ body.lightbox-locked {
 
   .calendar-month-label {
     font-size: 1.1rem;
+  }
+
+  /* Only room for one month on narrow screens — the "next" button still
+     steps a month at a time, same as the two-month desktop view. */
+  .calendar-month-second {
+    display: none;
   }
 }
 

@@ -122,14 +122,15 @@
     renderSummary();
   }
 
-  function renderCalendar() {
+  // Renders one month's grid into the given elements. Shared by the two
+  // side-by-side months (Airbnb-style) so a check-in near a month's end and
+  // a check-out early the next month are both visible at once, with no
+  // navigation required in between.
+  function renderMonthGrid(year, month, monthLabelEl, weekdaysEl, daysEl) {
     var t = window.Jadranka.t;
-    var monthLabel = document.getElementById('calendar-month-label');
-    var weekdaysEl = document.getElementById('calendar-weekdays');
-    var daysEl = document.getElementById('calendar-days');
-    var updatedEl = document.getElementById('calendar-updated');
+    if (!monthLabelEl) return;
 
-    monthLabel.textContent = t('calendar.month.' + state.viewMonth) + ' ' + state.viewYear;
+    monthLabelEl.textContent = t('calendar.month.' + month) + ' ' + year;
 
     weekdaysEl.innerHTML = '';
     for (var w = 0; w < 7; w++) {
@@ -139,9 +140,9 @@
     }
 
     daysEl.innerHTML = '';
-    var firstOfMonth = new Date(state.viewYear, state.viewMonth, 1);
+    var firstOfMonth = new Date(year, month, 1);
     var startOffset = (firstOfMonth.getDay() + 6) % 7; // Monday-first
-    var daysInMonth = new Date(state.viewYear, state.viewMonth + 1, 0).getDate();
+    var daysInMonth = new Date(year, month + 1, 0).getDate();
 
     for (var i = 0; i < startOffset; i++) {
       var empty = document.createElement('span');
@@ -150,7 +151,7 @@
     }
 
     var _loop = function (day) {
-      var date = new Date(state.viewYear, state.viewMonth, day);
+      var date = new Date(year, month, day);
       var btn = document.createElement('button');
       btn.type = 'button';
       btn.className = 'calendar-day';
@@ -174,6 +175,28 @@
     };
 
     for (var day = 1; day <= daysInMonth; day++) _loop(day);
+  }
+
+  function renderCalendar() {
+    var t = window.Jadranka.t;
+    var updatedEl = document.getElementById('calendar-updated');
+
+    var nextMonth = state.viewMonth + 1;
+    var nextYear = state.viewYear;
+    if (nextMonth > 11) { nextMonth = 0; nextYear++; }
+
+    renderMonthGrid(
+      state.viewYear, state.viewMonth,
+      document.getElementById('calendar-month-label'),
+      document.getElementById('calendar-weekdays'),
+      document.getElementById('calendar-days')
+    );
+    renderMonthGrid(
+      nextYear, nextMonth,
+      document.getElementById('calendar-month-label-2'),
+      document.getElementById('calendar-weekdays-2'),
+      document.getElementById('calendar-days-2')
+    );
 
     if (updatedEl) {
       if (state.lastUpdated) {

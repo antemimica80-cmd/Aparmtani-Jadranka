@@ -171,7 +171,7 @@
     'istok.not_included.2': { hr: 'Detektor dima', en: 'Smoke alarm' },
     'istok.not_included.3': { hr: 'Detektor ugljičnog monoksida', en: 'Carbon monoxide alarm' },
     'istok.pricing_title': { hr: 'Cijene', en: 'Pricing' },
-    'istok.pricing_desc': { hr: 'Cijene ovise o sezoni i duljini boravka. Kontaktirajte nas za personaliziranu ponudu i trenutnu dostupnost.', en: 'Rates vary by season and length of stay. Contact us for a personalized quote and current availability.' },
+    'istok.pricing_desc': { hr: 'Cijene ovise o sezoni i duljini boravka. Odaberite datume dolaska i odlaska da vidite točnu cijenu i dostupnost.', en: 'Rates vary by season and length of stay. Select your check-in and check-out dates to see the exact price and availability.' },
     'istok.pricing_cta': { hr: 'Kontaktirajte za cijene', en: 'Contact for Rates' },
     'istok.pricing_note': { hr: 'Bez naknada za rezervaciju — rezervirajte izravno kod naše obitelji.', en: 'No booking fees — reserve directly with our family.' },
 
