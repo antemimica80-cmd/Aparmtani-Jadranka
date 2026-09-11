@@ -24,6 +24,12 @@ To swap any photo later, replace the file (keep the same name) or edit the
 `pages/istok.html`. Resize new photos the same way before adding them so the page doesn't
 ship multi-MB images.
 
+**Cache-busting when replacing a photo that keeps its filename:** browsers cache images
+aggressively, so overwriting e.g. `stan-cover.jpg` with new content can leave returning
+visitors seeing the old photo until they hard-refresh. Bump (or add) a `?v=YYYYMMDD` query
+string on every `url(...)`/`src="..."` reference to that file when you replace it — see
+`stan-cover.jpg?v=20260911` in `css/style.css` and `pages/stan.html` for the pattern.
+
 ## Gallery preview + lightbox (js/gallery.js)
 
 Visitors don't see all 16 tiles at once — `js/gallery.js` reads the full `.gallery-grid`
