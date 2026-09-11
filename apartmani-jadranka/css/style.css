@@ -1476,6 +1476,89 @@ body.modal-open {
    Responsive
    =========================================================== */
 
+/* The full-text nav ("Apartman s pogledom na more", etc.) needs real
+   room to fit on one line — it wraps well before typical phone/tablet
+   breakpoints (including landscape phones up to ~1100px), so the
+   mobile drawer kicks in much earlier than other layout changes below. */
+@media (max-width: 1180px) {
+  .nav-toggle {
+    display: flex;
+    position: relative;
+    z-index: 1002;
+  }
+
+  /* height is set explicitly (not via top+bottom) because the header uses
+     backdrop-filter when scrolled/solid, which makes it a new containing
+     block for fixed descendants — bottom:0 would then resolve against the
+     header's own (short) box instead of the viewport. */
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    height: 100dvh;
+    width: 78%;
+    max-width: 320px;
+    background-color: var(--color-stone);
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 40px;
+    gap: 30px;
+    box-shadow: -10px 0 40px rgba(27, 75, 107, 0.15);
+    transform: translateX(100%);
+    transition: transform 0.35s ease;
+    z-index: 1001;
+  }
+
+  .nav-links.open {
+    transform: translateX(0);
+  }
+
+  .nav-links a {
+    color: var(--color-text) !important;
+    font-size: 0.9rem;
+  }
+
+  .nav-links .lang-switch {
+    color: var(--color-text-light) !important;
+    margin-top: 8px;
+  }
+
+  .nav-links .lang-switch button {
+    color: inherit !important;
+  }
+
+  .nav-links .lang-switch button.active {
+    color: var(--color-sea-deep) !important;
+  }
+
+  .nav-backdrop {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    height: 100dvh;
+    background-color: rgba(15, 32, 45, 0.5);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.35s ease, visibility 0.35s ease;
+  }
+
+  .nav-backdrop.open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  html.nav-open,
+  body.nav-open {
+    overflow: hidden;
+  }
+}
+
 @media (max-width: 900px) {
   .units-grid {
     grid-template-columns: 1fr;
@@ -1573,86 +1656,6 @@ body.modal-open {
 
   p.section-subtitle {
     margin-bottom: 48px;
-  }
-
-  /* height is set explicitly (not via top+bottom) because the header uses
-     backdrop-filter when scrolled/solid, which makes it a new containing
-     block for fixed descendants — bottom:0 would then resolve against the
-     header's own (short) box instead of the viewport. */
-  .nav-links {
-    position: fixed;
-    top: 0;
-    right: 0;
-    height: 100vh;
-    height: 100dvh;
-    width: 78%;
-    max-width: 320px;
-    background-color: var(--color-stone);
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    padding: 40px;
-    gap: 30px;
-    box-shadow: -10px 0 40px rgba(27, 75, 107, 0.15);
-    transform: translateX(100%);
-    transition: transform 0.35s ease;
-    z-index: 1001;
-  }
-
-  .nav-links.open {
-    transform: translateX(0);
-  }
-
-  .nav-backdrop {
-    display: block;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 100vh;
-    height: 100dvh;
-    background-color: rgba(15, 32, 45, 0.5);
-    z-index: 1000;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.35s ease, visibility 0.35s ease;
-  }
-
-  .nav-backdrop.open {
-    opacity: 1;
-    visibility: visible;
-  }
-
-  .nav-toggle {
-    position: relative;
-    z-index: 1002;
-  }
-
-  html.nav-open,
-  body.nav-open {
-    overflow: hidden;
-  }
-
-  .nav-links a {
-    color: var(--color-text) !important;
-    font-size: 0.9rem;
-  }
-
-  .nav-links .lang-switch {
-    color: var(--color-text-light) !important;
-    margin-top: 8px;
-  }
-
-  .nav-links .lang-switch button {
-    color: inherit !important;
-  }
-
-  .nav-links .lang-switch button.active {
-    color: var(--color-sea-deep) !important;
-  }
-
-  .nav-toggle {
-    display: flex;
   }
 
   .form-row {
