@@ -528,10 +528,24 @@ section {
 }
 
 .reviews-track-wrap {
-  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  cursor: grab;
   /* Fade the marquee out at both edges instead of hard-cutting cards. */
   -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 64px, #000 calc(100% - 64px), transparent 100%);
   mask-image: linear-gradient(90deg, transparent 0, #000 64px, #000 calc(100% - 64px), transparent 100%);
+}
+
+.reviews-track-wrap::-webkit-scrollbar {
+  display: none;
+}
+
+.reviews-track-wrap.dragging {
+  cursor: grabbing;
+  scroll-snap-type: none;
 }
 
 .reviews-track {
@@ -539,16 +553,6 @@ section {
   gap: 24px;
   width: max-content;
   padding: 4px 32px;
-  animation: reviews-marquee 70s linear infinite;
-}
-
-.reviews-track.paused {
-  animation-play-state: paused;
-}
-
-@keyframes reviews-marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
 }
 
 .review-card {
@@ -618,12 +622,6 @@ section {
   -webkit-line-clamp: unset;
   overflow: visible;
   font-size: 1.05rem;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .reviews-track {
-    animation: none;
-  }
 }
 
 /* ===========================================================
