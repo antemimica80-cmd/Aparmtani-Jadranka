@@ -1192,6 +1192,16 @@ body.lightbox-locked {
   align-items: start;
 }
 
+.contact-grid-solo {
+  grid-template-columns: 1fr;
+  justify-items: center;
+}
+
+.contact-grid-solo .host-card {
+  max-width: 420px;
+  width: 100%;
+}
+
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1395,59 +1405,6 @@ body.modal-open {
   font-size: 0.9rem;
 }
 
-.contact-info {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-}
-
-.contact-info-card h3 {
-  color: var(--color-white);
-  font-size: 1.15rem;
-  margin-bottom: 24px;
-  font-weight: 500;
-}
-
-.contact-detail {
-  padding: 16px 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.16);
-  font-size: 0.95rem;
-  font-weight: 300;
-  color: rgba(255, 255, 255, 0.9);
-}
-
-.contact-detail:last-child {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
-}
-
-.contact-detail .label {
-  display: block;
-  font-size: 0.68rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.55);
-  margin-bottom: 6px;
-}
-
-.platform-links {
-  display: flex;
-  gap: 14px;
-  flex-wrap: wrap;
-}
-
-.platform-links a {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
-  padding-bottom: 4px;
-  font-size: 0.82rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  transition: border-color 0.2s ease, opacity 0.2s ease;
-}
-
-.platform-links a:hover {
-  border-color: var(--color-white);
-}
-
 /* ===========================================================
    Footer
    =========================================================== */
@@ -1470,6 +1427,28 @@ body.modal-open {
 
 .site-footer p {
   margin-bottom: 6px;
+}
+
+.footer-contact a {
+  color: rgba(255, 255, 255, 0.85);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+  padding-bottom: 1px;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.footer-contact a:hover {
+  color: var(--color-white);
+  border-color: var(--color-white);
+}
+
+.footer-contact .dot {
+  display: inline-block;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.4);
+  margin: 0 10px;
+  vertical-align: middle;
 }
 
 /* ===========================================================

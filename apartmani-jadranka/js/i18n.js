@@ -71,11 +71,6 @@
     'contact.form_message': { hr: 'Poruka', en: 'Message' },
     'contact.form_message_ph': { hr: 'Recite nam nešto o vašem boravku — broj gostiju, datumi, posebni zahtjevi, itd.', en: 'Tell us about your stay — number of guests, dates, special requests, etc.' },
     'contact.form_submit': { hr: 'Pošalji poruku', en: 'Send Message' },
-    'contact.direct': { hr: 'Izravan kontakt', en: 'Direct Contact' },
-    'contact.label_email': { hr: 'Email', en: 'Email' },
-    'contact.label_phone': { hr: 'Telefon', en: 'Phone' },
-    'contact.label_location': { hr: 'Lokacija', en: 'Location' },
-    'contact.also_find': { hr: 'Također nas pronađite na', en: 'Also Find Us On' },
     'contact.form_error': { hr: 'Molimo unesite ime, email i kratku poruku.', en: 'Please fill in your name, email, and a short message.' },
     'contact.form_sending': { hr: 'Slanje poruke…', en: 'Sending message…' },
     'contact.form_success': { hr: 'Hvala, {name}! Vaša poruka je poslana — javit ćemo vam se uskoro putem emaila.', en: 'Thank you, {name}! Your message has been sent — we will get back to you by email shortly.' },
@@ -89,7 +84,7 @@
     'riviera.coming_soon': { hr: 'Naše preporuke uskoro stižu ovdje.', en: 'Our recommendations are coming here soon.' },
 
     // --- Footer ---
-    'footer.location': { hr: 'Mimice, Dalmatinska obala, Hrvatska', en: 'Mimice, Dalmatian Coast, Croatia' },
+    'footer.address': { hr: 'Prilaz Moru 6, 21318 Mimice, Hrvatska', en: 'Prilaz Moru 6, 21318 Mimice, Croatia' },
     'footer.rights': { hr: 'Sva prava pridržana.', en: 'All rights reserved.' },
 
     // --- Istok page ---
