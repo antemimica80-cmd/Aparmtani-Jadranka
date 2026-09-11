@@ -220,12 +220,21 @@ section {
 }
 
 .nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   font-family: var(--font-display);
   font-size: 1.5rem;
   font-weight: 600;
   letter-spacing: 0.04em;
   color: var(--color-white);
   transition: color 0.4s ease;
+}
+
+.nav-logo-icon {
+  height: 28px;
+  width: auto;
+  flex: none;
 }
 
 .site-header.scrolled .nav-brand,
@@ -1597,6 +1606,16 @@ body.modal-open {
    breakpoints (including landscape phones up to ~1100px), so the
    mobile drawer kicks in much earlier than other layout changes below. */
 @media (max-width: 1180px) {
+  .nav-brand {
+    font-size: 1.25rem;
+    gap: 8px;
+    white-space: nowrap;
+  }
+
+  .nav-logo-icon {
+    height: 22px;
+  }
+
   .nav-toggle {
     display: flex;
     position: relative;
