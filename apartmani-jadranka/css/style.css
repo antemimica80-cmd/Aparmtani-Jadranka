@@ -399,7 +399,7 @@ section {
   position: relative;
   z-index: 2;
   padding: 0 32px;
-  max-width: 640px;
+  max-width: 760px;
 }
 
 .hero-eyebrow {
@@ -414,7 +414,8 @@ section {
 .hero h1 {
   color: var(--color-white);
   font-weight: 500;
-  font-size: clamp(3rem, 8vw, 5.6rem);
+  font-size: clamp(2.2rem, 5.5vw, 4.2rem);
+  line-height: 1.15;
   margin-bottom: 26px;
   letter-spacing: 0.01em;
 }
