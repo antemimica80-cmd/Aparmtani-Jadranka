@@ -235,16 +235,17 @@ section {
 
 .nav-links {
   display: flex;
-  gap: 44px;
+  gap: 26px;
   align-items: center;
 }
 
 .nav-links a {
   font-weight: 400;
-  font-size: 0.78rem;
-  letter-spacing: 0.14em;
+  font-size: 0.74rem;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--color-white);
+  white-space: nowrap;
   padding-bottom: 6px;
   border-bottom: 1px solid transparent;
   transition: border-color 0.25s ease, color 0.4s ease;
@@ -1372,6 +1373,36 @@ body.modal-open {
 }
 
 /* ===========================================================
+   Mimice
+   =========================================================== */
+
+.mimice-section {
+  background-color: var(--color-white);
+}
+
+.mimice-distances {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+  font-size: 0.95rem;
+  color: var(--color-sea-deep);
+}
+
+.mimice-distances strong {
+  font-weight: 500;
+}
+
+.mimice-distances .dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: var(--color-sea);
+}
+
+/* ===========================================================
    Local area guide (Riviera)
    =========================================================== */
 
@@ -1497,6 +1528,7 @@ body.modal-open {
   .nav-links a {
     color: var(--color-text) !important;
     font-size: 0.9rem;
+    white-space: normal;
   }
 
   .nav-links .lang-switch {
