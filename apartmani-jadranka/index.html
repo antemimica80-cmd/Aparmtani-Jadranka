@@ -87,6 +87,24 @@
     </div>
   </section>
 
+  <!-- ============ GUEST REVIEWS ============ -->
+  <!-- Real Airbnb reviews (translated into HR/EN) — see js/reviews.js for the
+       source data and js/i18n.js for the reviews.N.quote translations. The
+       track below is built entirely by JS (duplicated for a seamless loop);
+       this container just needs to exist. -->
+  <section id="reviews" class="reviews-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow" data-i18n="reviews.eyebrow">Guest Reviews</span>
+        <h2 class="section-title" data-i18n="reviews.title">What Our Guests Say</h2>
+        <p class="section-subtitle" data-i18n="reviews.subtitle">48 reviews on Airbnb — a few of our favorites.</p>
+      </div>
+    </div>
+    <div class="reviews-track-wrap reveal">
+      <div class="reviews-track" id="reviews-track"></div>
+    </div>
+  </section>
+
   <!-- ============ WHY STAY WITH US ============ -->
   <section class="why-stay">
     <div class="container">
@@ -246,6 +264,7 @@
   <script src="js/i18n.js?v=20260911"></script>
   <script src="js/main.js?v=20260910"></script>
   <script src="js/gallery.js?v=20260911"></script>
+  <script src="js/reviews.js?v=20260911"></script>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
