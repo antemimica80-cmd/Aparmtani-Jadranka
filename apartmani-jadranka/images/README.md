@@ -42,3 +42,18 @@ class on 5 of the `.gallery-item` divs in `pages/stan.html` / `pages/istok.html`
 change which photos represent the apartment, just move that class to different tiles
 (keep exactly 5). Everything else — the other 11 photos — is still reachable once a
 visitor clicks "Show all photos".
+
+`js/gallery.js` only wires up the *first* `.gallery-grid` it finds on a page, so a page
+can have at most one gallery. That's why the Mimice gallery below only marks 2 tiles as
+`gallery-featured` instead of 5 — the preview pads itself out to 5 tiles automatically
+from the remaining (non-featured) photos in DOM order, so 2 featured is enough to control
+which photos get top billing.
+
+## Mimice village photos (`mimice-1.jpg` … `mimice-14.jpg`)
+
+The "Welcome to Mimice" section on the homepage (`index.html` → `#mimice`) has its own
+14-photo gallery, built the same way as the unit galleries above (resized to ~1600px
+longest side, JPEG quality ~68 — a bit smaller than the unit photos since there are more
+of them). `mimice-1.jpg` and `mimice-2.jpg` are the two `gallery-featured` tiles shown in
+the compact preview on the homepage; swap the class to different tiles in `index.html` to
+change which photos represent Mimice up front.

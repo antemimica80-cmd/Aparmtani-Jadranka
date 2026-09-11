@@ -19,6 +19,8 @@
         <li><a href="index.html" class="active" data-i18n="nav.home">Home</a></li>
         <li><a href="pages/stan.html" data-i18n="nav.stan">Stan</a></li>
         <li><a href="pages/istok.html" data-i18n="nav.istok">Istok</a></li>
+        <li><a href="index.html#mimice" data-i18n="nav.mimice">Mimice</a></li>
+        <li><a href="index.html#riviera" data-i18n="nav.things">Nearby</a></li>
         <li><a href="index.html#contact" data-i18n="nav.contact">Contact</a></li>
         <li class="lang-switch">
           <button type="button" data-lang-btn="hr">HR</button>
@@ -118,13 +120,52 @@
     </div>
   </section>
 
+  <!-- ============ MIMICE ============ -->
+  <section id="mimice" class="mimice-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow" data-i18n="mimice.eyebrow">Discover Mimice</span>
+        <h2 class="section-title" data-i18n="mimice.title">Welcome to Mimice</h2>
+        <p class="section-subtitle" data-i18n="mimice.intro">Mimice is a small, authentic village on the Dalmatian coast — home to two of the most beautiful beaches on this stretch of coastline, Kutleša and Juto, with crystal-clear turquoise water and pebble shores framed by pine forest. Wander up into the old village core, where narrow stone streets wind between traditional stone houses, for a slower pace of life just steps from the sea.</p>
+      </div>
+
+      <!-- The 2 "featured" photos (class="gallery-featured") are the ones shown in the
+           compact preview (js/gallery.js) before a visitor clicks "Show all photos" — move
+           the class to different tiles below to change which photos represent Mimice. -->
+      <div class="gallery-grid reveal">
+        <div class="gallery-item gallery-featured" style="background: url('images/mimice-1.jpg?v=20260911') center/cover no-repeat;"><span data-i18n="mimice.gallery.1">Mimice Coastline</span></div>
+        <div class="gallery-item gallery-featured" style="background: url('images/mimice-2.jpg?v=20260911') center/cover no-repeat;"><span data-i18n="mimice.gallery.2">Old Village Alley</span></div>
+        <div class="gallery-item" style="background: url('images/mimice-3.jpg?v=20260911') center/cover no-repeat;"><span data-i18n="mimice.gallery.3">Village Harbour</span></div>
+        <div class="gallery-item" style="background: url('images/mimice-4.jpg?v=20260911') center/cover no-repeat;"><span data-i18n="mimice.gallery.4">View Over the Old Village</span></div>
+        <div class="gallery-item" style="background: url('images/mimice-5.jpg?v=20260911') center/cover no-repeat;"><span data-i18n="mimice.gallery.5">Mimice from Above</span></div>
+        <div class="gallery-item" style="background: url('images/mimice-6.jpg?v=20260911') center/cover no-repeat;"><span data-i18n="mimice.gallery.6">Along the Beach</span></div>
+        <div class="gallery-item" style="background: url('images/mimice-7.jpg?v=20260911') center/cover no-repeat;"><span data-i18n="mimice.gallery.7">Summer Days at the Beach</span></div>
+        <div class="gallery-item" style="background: url('images/mimice-8.jpg?v=20260911') center/cover no-repeat;"><span data-i18n="mimice.gallery.8">Crystal-Clear Water</span></div>
+        <div class="gallery-item" style="background: url('images/mimice-9.jpg?v=20260911') center/cover no-repeat;"><span data-i18n="mimice.gallery.9">A Quiet Cove</span></div>
+        <div class="gallery-item" style="background: url('images/mimice-10.jpg?v=20260911') center/cover no-repeat;"><span data-i18n="mimice.gallery.10">Hidden Corner of the Coast</span></div>
+        <div class="gallery-item" style="background: url('images/mimice-11.jpg?v=20260911') center/cover no-repeat;"><span data-i18n="mimice.gallery.11">Sunset by the Sea</span></div>
+        <div class="gallery-item" style="background: url('images/mimice-12.jpg?v=20260911') center/cover no-repeat;"><span data-i18n="mimice.gallery.12">Evening on the Adriatic</span></div>
+        <div class="gallery-item" style="background: url('images/mimice-13.jpg?v=20260911') center/cover no-repeat;"><span data-i18n="mimice.gallery.13">Mimice at Dusk</span></div>
+        <div class="gallery-item" style="background: url('images/mimice-14.jpg?v=20260911') center/cover no-repeat;"><span data-i18n="mimice.gallery.14">Mimice by Night</span></div>
+      </div>
+
+      <p class="mimice-distances reveal">
+        <span><strong>12 km</strong> <span data-i18n="mimice.dist_omis">from Omiš</span></span>
+        <span class="dot" aria-hidden="true"></span>
+        <span><strong>36 km</strong> <span data-i18n="mimice.dist_split">from Split</span></span>
+        <span class="dot" aria-hidden="true"></span>
+        <span><strong>22 km</strong> <span data-i18n="mimice.dist_makarska">from Makarska</span></span>
+      </p>
+    </div>
+  </section>
+
   <!-- ============ LOCAL AREA GUIDE ============ -->
   <section id="riviera" class="riviera-section">
     <div class="container">
       <div class="section-header reveal">
-        <span class="eyebrow" data-i18n="riviera.eyebrow">Explore the Area</span>
-        <h2 class="section-title" data-i18n="riviera.title">Mimice — Part of the Beautiful Omiš Riviera</h2>
-        <p class="section-subtitle" data-i18n="riviera.intro">Mimice is a small village on the Dalmatian coast, just minutes from Omiš and half an hour from Split — surrounded by crystal-clear sea, pine forest, and beautiful pebble beaches.</p>
+        <span class="eyebrow" data-i18n="riviera.eyebrow">Nearby</span>
+        <h2 class="section-title" data-i18n="riviera.title">Things to Do Around Mimice</h2>
+        <p class="section-subtitle" data-i18n="riviera.intro">Excursions, shops, and restaurants worth the trip — our own recommendations from the area.</p>
       </div>
 
       <div class="riviera-categories reveal">
@@ -202,8 +243,9 @@
     </div>
   </footer>
 
-  <script src="js/i18n.js?v=20260910"></script>
+  <script src="js/i18n.js?v=20260911"></script>
   <script src="js/main.js?v=20260910"></script>
+  <script src="js/gallery.js?v=20260911"></script>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
