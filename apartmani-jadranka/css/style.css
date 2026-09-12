@@ -660,6 +660,21 @@ section {
   background-color: var(--color-sand);
 }
 
+.notice-box {
+  background-color: var(--color-sea-mist);
+  border-left: 3px solid var(--color-sea);
+  border-radius: var(--radius);
+  padding: 22px 26px;
+  margin-bottom: 56px;
+}
+
+.notice-box p {
+  color: var(--color-sea-deep);
+  font-size: 0.92rem;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
 .features-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -1601,37 +1616,29 @@ body.modal-open {
   background-color: var(--color-sea);
 }
 
-/* ===========================================================
-   Local area guide (Riviera)
-   =========================================================== */
-
-.riviera-section {
-  background-color: var(--color-sand);
-}
-
-.riviera-categories {
+.mimice-highlights {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 56px;
 }
 
-.riviera-category {
-  background-color: var(--color-white);
+.mimice-highlight-card {
+  background-color: var(--color-stone);
   border-radius: var(--radius-lg);
-  padding: 32px;
+  padding: 32px 28px;
   text-align: center;
 }
 
-.riviera-category h3 {
+.mimice-highlight-card h3 {
   color: var(--color-sea-deep);
   font-size: 1.15rem;
   margin-bottom: 12px;
 }
 
-.riviera-placeholder {
+.mimice-highlight-card p {
   color: var(--color-text-light);
   font-weight: 300;
-  font-style: italic;
   font-size: 0.9rem;
 }
 
@@ -1833,8 +1840,8 @@ body.modal-open {
     grid-template-columns: 1fr;
   }
 
-  .riviera-categories {
-    grid-template-columns: 1fr;
+  .mimice-highlights {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .gallery-grid {
@@ -1942,13 +1949,29 @@ body.modal-open {
   }
 
   .feature-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    text-align: left;
     border-left: none;
     border-top: 1px solid var(--color-sand-dark);
-    padding: 40px 12px 0;
+    padding: 20px 4px;
   }
 
   .feature-card:first-child {
     border-top: none;
     padding-top: 0;
+  }
+
+  .feature-icon {
+    flex: none;
+    width: 30px;
+    font-size: 1rem;
+    margin-bottom: 0;
+    padding-top: 3px;
+  }
+
+  .mimice-highlights {
+    grid-template-columns: 1fr;
   }
 }

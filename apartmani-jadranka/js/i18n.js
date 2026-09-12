@@ -17,7 +17,6 @@
     'nav.stan': { hr: 'Apartman s pogledom na jugozapad', en: 'South West View Apartment' },
     'nav.istok': { hr: 'Apartman s pogledom na jugoistok', en: 'South East View Apartment' },
     'nav.mimice': { hr: 'Mimice', en: 'Mimice' },
-    'nav.things': { hr: 'U okolici', en: 'Nearby' },
     'nav.contact': { hr: 'Kontakt', en: 'Contact' },
 
     'stan.display_name': { hr: 'Apartman s panoramskim pogledom na more i prostranom terasom', en: 'Panoramic Sea View Apartment with Spacious Terrace' },
@@ -71,8 +70,9 @@
     'home.why.f2_desc': { hr: 'Mirne Mimice, daleko od gužve.', en: 'Peaceful Mimice, away from the crowds.' },
     'home.why.f3_title': { hr: 'Samostalni smještaj', en: 'Self-Catering' },
     'home.why.f3_desc': { hr: 'Potpuno opremljene kuhinje, udobnost doma.', en: 'Fully equipped kitchens, home comforts.' },
-    'home.why.f4_title': { hr: 'Domaće gostoprimstvo', en: 'Local Hospitality' },
-    'home.why.f4_desc': { hr: 'Topla dobrodošlica obitelji koja poznaje obalu.', en: 'A warm welcome from a family that knows the coast.' },
+    'home.why.f4_title': { hr: '40 godina iskustva', en: '40 Years of Hospitality' },
+    'home.why.f4_desc': { hr: 'Obiteljski posao s dugom tradicijom — goste u Mimicama ugošćujemo više od 40 godina.', en: 'A family business with a long tradition — we have been welcoming guests in Mimice for more than 40 years.' },
+    'home.why.notice': { hr: 'Dobro je znati: oba apartmana nalaze se na drugom katu. Mimice su smještene na brdovitom terenu, pa je povratak s plaže uzbrdo. Slobodno nas pitajte o pristupu prije rezervacije.', en: 'Good to know: both apartments are on the second floor. Mimice sits on a hillside, so the walk back from the beach is uphill. Feel free to ask us about access before booking.' },
 
     // --- Gallery lightbox (shared: unit pages) ---
     'gallery.show_all': { hr: 'Prikaži sve fotografije', en: 'Show all photos' },
@@ -97,14 +97,6 @@
     'contact.form_sending': { hr: 'Slanje poruke…', en: 'Sending message…' },
     'contact.form_success': { hr: 'Hvala, {name}! Vaša poruka je poslana — javit ćemo vam se uskoro putem emaila.', en: 'Thank you, {name}! Your message has been sent — we will get back to you by email shortly.' },
     'contact.form_send_error': { hr: 'Nešto je pošlo po zlu. Pokušajte ponovno ili nam pišite izravno na email.', en: 'Something went wrong. Please try again or email us directly.' },
-    'riviera.eyebrow': { hr: 'U okolici', en: 'Nearby' },
-    'riviera.title': { hr: 'Aktivnosti u okolici Mimica', en: 'Things to Do Around Mimice' },
-    'riviera.intro': { hr: 'Izleti, trgovine i restorani vrijedni posjeta — naše osobne preporuke iz okolice.', en: 'Excursions, shops, and restaurants worth the trip — our own recommendations from the area.' },
-    'riviera.cat_excursions': { hr: 'Izleti', en: 'Excursions' },
-    'riviera.cat_shops': { hr: 'Trgovine', en: 'Shops' },
-    'riviera.cat_restaurants': { hr: 'Restorani', en: 'Restaurants' },
-    'riviera.coming_soon': { hr: 'Naše preporuke uskoro stižu ovdje.', en: 'Our recommendations are coming here soon.' },
-
     'mimice.eyebrow': { hr: 'Upoznajte Mimice', en: 'Discover Mimice' },
     'mimice.title': { hr: 'Dobrodošli u Mimice', en: 'Welcome to Mimice' },
     'mimice.intro': { hr: 'Mimice su malo dalmatinsko mjesto stvoreno za sporiji ritam odmora. Kristalno čisto more, šljunčane plaže Kutleša i Juto te hlad borova stvaraju onu jednostavnu mediteransku atmosferu zbog koje se ovdje lako ostaje duže nego što ste planirali.', en: 'Mimice is a small Dalmatian village made for a slower kind of holiday. Crystal-clear sea, the pebble beaches of Kutleša and Juto, and the shade of pine trees create that simple Mediterranean feeling that makes it easy to stay longer than you planned.' },
@@ -112,6 +104,16 @@
     'mimice.dist_omis': { hr: 'od Omiša', en: 'from Omiš' },
     'mimice.dist_split': { hr: 'od Splita', en: 'from Split' },
     'mimice.dist_makarska': { hr: 'od Makarske', en: 'from Makarska' },
+
+    'mimice.highlight1_title': { hr: 'Plaže Kutleša i Juto', en: 'Kutleša & Juto Beaches' },
+    'mimice.highlight1_desc': { hr: 'Šljunčane plaže s kristalno čistim morem, tik uz mjesto. Ponesite obuću za kupanje — povratak kući je uzbrdo.', en: 'Pebble beaches with crystal-clear water, right by the village. Bring water shoes — the walk back home is uphill.' },
+    'mimice.highlight2_title': { hr: 'Staro selo Mimice', en: 'The Old Stone Village' },
+    'mimice.highlight2_desc': { hr: 'Prošećite kamenim uličicama starog dijela mjesta, između kamenih kuća i pogleda na more koji se otvaraju iznenada.', en: 'Wander the stone lanes of the old village, between traditional houses and sudden glimpses of the sea.' },
+    'mimice.highlight3_title': { hr: 'Izlet brodom i riblji piknik', en: 'Boat Tour & Fish Picnic' },
+    'mimice.highlight3_desc': { hr: 'Cijeli dan na moru s tradicionalnim dalmatinskim ručkom od svježe ribe — izlet polazi direktno iz Mimica. Pitajte nas za detalje i rezervaciju.', en: 'A full day on the water with a traditional Dalmatian fish lunch — the tour departs right from Mimice. Ask us for details and booking.' },
+    'mimice.highlight4_title': { hr: 'Pitajte lokalca', en: 'Ask a Local' },
+    'mimice.highlight4_desc': { hr: 'Za restorane, trgovine ili izlete prema Omišu samo nas pitajte — rado ćemo prilagoditi preporuke vašem boravku.', en: 'For restaurants, shops, or trips toward Omiš, just ask us — we are happy to tailor suggestions to your stay.' },
+
     'mimice.gallery.1': { hr: 'Obala Mimica', en: 'Mimice Coastline' },
     'mimice.gallery.2': { hr: 'Uličica starog sela', en: 'Old Village Alley' },
     'mimice.gallery.3': { hr: 'Seoska luka', en: 'Village Harbour' },
