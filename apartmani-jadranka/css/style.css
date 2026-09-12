@@ -660,19 +660,16 @@ section {
   background-color: var(--color-sand);
 }
 
-.notice-box {
-  background-color: var(--color-sea-mist);
-  border-left: 3px solid var(--color-sea);
-  border-radius: var(--radius);
-  padding: 22px 26px;
-  margin-bottom: 56px;
-}
-
-.notice-box p {
-  color: var(--color-sea-deep);
-  font-size: 0.92rem;
+.why-footnote {
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid var(--color-sand-dark);
+  color: var(--color-text-light);
+  font-size: 0.78rem;
   font-weight: 300;
+  font-style: italic;
   line-height: 1.6;
+  max-width: 60ch;
 }
 
 .features-grid {
