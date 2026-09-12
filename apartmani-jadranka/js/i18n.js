@@ -28,10 +28,6 @@
     // --- Homepage: Hero ---
     'home.hero.eyebrow': { hr: 'Mimice · Dalmatinska obala', en: 'Mimice · Dalmatian Coast' },
     'home.hero.headline': { hr: 'Mirna jutra, beskrajan pogled na more', en: 'Slow Mornings, Endless Sea Views' },
-    'home.hero.headline2': { hr: 'Ovdje more određuje ritam.', en: 'Here, the Sea Sets the Rhythm.' },
-    'home.hero.subtitle2': { hr: 'Dva obiteljska apartmana u Mimicama. Vlastita terasa ili balkon, pogled na Jadran i prostor za četiri gosta.', en: 'Two family apartments in Mimice. Your own terrace or balcony, Adriatic views, and room for four guests.' },
-    'home.hero.cta_preview': { hr: 'Odaberite svoj apartman', en: 'Choose Your Apartment' },
-    'home.hero.note_preview': { hr: 'Izravno s našom obitelji', en: 'Directly with our family' },
     'home.hero.subtitle': { hr: 'Obiteljski apartmani na Jadranu, nekoliko koraka od mora.', en: 'Family-run apartments on the Adriatic, steps from the sea.' },
 
     // --- Homepage: Units overview ---
