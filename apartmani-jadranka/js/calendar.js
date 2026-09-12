@@ -11,35 +11,47 @@
 // PRICING: Airbnb does not expose per-date rates via iCal, so seasonal prices
 // are defined manually below. Edit PRICING_CONFIG_BY_UNIT to match real rates
 // — ranges use "MM-DD" (month-day) and are matched against every year. Stan
-// and Istok currently share one rate card (see the "istok" entry below).
+// and Istok have separate rate cards (Stan runs slightly higher).
 
 (function () {
+  // Month-day ranges (inclusive), matched against every year — must stay
+  // contiguous and cover the full year (no gaps/overlaps). Real rate cards
+  // from the owner. Winter (Nov–Mar) is a long-stay/off-season rate, hence
+  // the 28-night minimum.
   var PRICING_CONFIG_BY_UNIT = {
     stan: {
       currency: '€',
-      // Month-day ranges (inclusive), matched against every year — must stay
-      // contiguous and cover the full year (no gaps/overlaps). Real rate card
-      // from the owner, except "offseason" (Nov–mid-Apr), which is a
-      // placeholder until the final price is confirmed.
       seasons: [
-        { key: 'offseason', start: '01-01', end: '04-15', price: 70, minNights: 2 },
-        { key: 'low', start: '04-16', end: '05-31', price: 105, minNights: 3 },
-        { key: 'mid', start: '06-01', end: '06-15', price: 115, minNights: 5 },
-        { key: 'midhigh', start: '06-16', end: '06-30', price: 145, minNights: 5 },
-        { key: 'high', start: '07-01', end: '08-31', price: 185, minNights: 7 },
-        { key: 'midhigh', start: '09-01', end: '09-15', price: 145, minNights: 5 },
-        { key: 'mid', start: '09-16', end: '09-30', price: 115, minNights: 5 },
-        { key: 'low', start: '10-01', end: '10-31', price: 95, minNights: 3 },
-        { key: 'offseason', start: '11-01', end: '12-31', price: 70, minNights: 2 }
+        { key: 'winter', start: '01-01', end: '03-31', price: 50, minNights: 28 },
+        { key: 'spring', start: '04-01', end: '05-31', price: 115, minNights: 3 },
+        { key: 'early-summer', start: '06-01', end: '06-15', price: 145, minNights: 3 },
+        { key: 'pre-high', start: '06-16', end: '06-30', price: 165, minNights: 5 },
+        { key: 'high', start: '07-01', end: '08-31', price: 210, minNights: 7 },
+        { key: 'post-high', start: '09-01', end: '09-15', price: 165, minNights: 5 },
+        { key: 'late-summer', start: '09-16', end: '09-30', price: 145, minNights: 3 },
+        { key: 'autumn', start: '10-01', end: '10-31', price: 115, minNights: 3 },
+        { key: 'winter', start: '11-01', end: '12-31', price: 50, minNights: 28 }
       ],
-      defaultPrice: 70,
-      defaultMinNights: 2
+      defaultPrice: 50,
+      defaultMinNights: 28
     },
-    // Istok uses the same rate card as Stan (confirmed by the owner) —
-    // pointing at the same object keeps them from ever drifting apart.
-    istok: null
+    istok: {
+      currency: '€',
+      seasons: [
+        { key: 'winter', start: '01-01', end: '03-31', price: 50, minNights: 28 },
+        { key: 'spring', start: '04-01', end: '05-31', price: 110, minNights: 3 },
+        { key: 'early-summer', start: '06-01', end: '06-15', price: 140, minNights: 3 },
+        { key: 'pre-high', start: '06-16', end: '06-30', price: 160, minNights: 5 },
+        { key: 'high', start: '07-01', end: '08-31', price: 205, minNights: 7 },
+        { key: 'post-high', start: '09-01', end: '09-15', price: 160, minNights: 5 },
+        { key: 'late-summer', start: '09-16', end: '09-30', price: 140, minNights: 3 },
+        { key: 'autumn', start: '10-01', end: '10-31', price: 100, minNights: 3 },
+        { key: 'winter', start: '11-01', end: '12-31', price: 50, minNights: 28 }
+      ],
+      defaultPrice: 50,
+      defaultMinNights: 28
+    }
   };
-  PRICING_CONFIG_BY_UNIT.istok = PRICING_CONFIG_BY_UNIT.stan;
 
   var state = {
     unit: 'stan',
