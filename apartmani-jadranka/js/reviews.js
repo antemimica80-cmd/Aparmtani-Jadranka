@@ -22,7 +22,8 @@
     { name: 'Anna', key: 'reviews.7' },
     { name: 'Antun', key: 'reviews.8' },
     { name: 'Ildi', key: 'reviews.9' },
-    { name: 'Kevin', key: 'reviews.10' }
+    { name: 'Kevin', key: 'reviews.10' },
+    { name: 'Laura', key: 'reviews.11' }
   ];
 
   var AUTO_SPEED_PX_PER_SEC = 34;
