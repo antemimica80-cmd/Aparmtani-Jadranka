@@ -38,6 +38,7 @@
     'home.units.stan_meta1': { hr: '4 gosta', en: 'Sleeps 4' },
     'home.units.stan_meta2': { hr: 'Terasa 50 m²', en: '50 m² Terrace' },
     'home.units.stan_link': { hr: 'Pogledajte detalje →', en: 'View Details →' },
+    'home.units.cta': { hr: 'Pošalji upit', en: 'Send Inquiry' },
     'home.units.istok_desc': { hr: 'Prostran i moderan apartman od 80 m² u srcu Mimica, na koracima od plaže.', en: 'A spacious, modern 80 m² apartment in the heart of Mimice, steps from the beach.' },
     'home.units.istok_meta1': { hr: '4 gosta', en: 'Sleeps 4' },
     'home.units.istok_meta2': { hr: 'Balkon', en: 'Balcony' },
