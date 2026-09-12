@@ -155,10 +155,21 @@
       var btn = document.createElement('button');
       btn.type = 'button';
       btn.className = 'calendar-day';
-      btn.textContent = day;
+
+      var numEl = document.createElement('span');
+      numEl.className = 'day-num';
+      numEl.textContent = day;
+      btn.appendChild(numEl);
 
       var past = isPast(date);
       var blocked = isBlocked(date);
+
+      if (!past && !blocked) {
+        var priceEl = document.createElement('span');
+        priceEl.className = 'day-price';
+        priceEl.textContent = state.pricing.currency + priceForDate(date);
+        btn.appendChild(priceEl);
+      }
 
       if (past || blocked) {
         btn.classList.add('unavailable');
@@ -340,6 +351,50 @@
     });
   }
 
+  // Adults + children steppers on the inquiry form, capped at 4 guests
+  // total. Adults always keeps at least 1; children's max shrinks as
+  // adults grows (e.g. 4 adults -> 0 children allowed, 2 adults -> up to
+  // 2 children), so the combined total can never exceed MAX_GUESTS.
+  function initGuestSteppers() {
+    var MAX_GUESTS = 4;
+    var adultsInput = document.getElementById('avail-adults');
+    var childrenInput = document.getElementById('avail-children');
+    if (!adultsInput || !childrenInput) return;
+
+    var steppers = document.querySelectorAll('[data-stepper]');
+
+    function clamp() {
+      var adults = Math.max(1, Math.min(MAX_GUESTS, parseInt(adultsInput.value, 10) || 1));
+      var maxChildren = MAX_GUESTS - adults;
+      var children = Math.max(0, Math.min(maxChildren, parseInt(childrenInput.value, 10) || 0));
+
+      adultsInput.value = adults;
+      childrenInput.value = children;
+
+      for (var i = 0; i < steppers.length; i++) {
+        var wrap = steppers[i];
+        var isChildren = wrap.dataset.stepper === 'children';
+        var min = isChildren ? 0 : 1;
+        var max = isChildren ? maxChildren : MAX_GUESTS;
+        var value = isChildren ? children : adults;
+        wrap.querySelector('[data-step="-1"]').disabled = value <= min;
+        wrap.querySelector('[data-step="1"]').disabled = value >= max;
+      }
+    }
+
+    steppers.forEach(function (wrap) {
+      var input = wrap.querySelector('input');
+      wrap.querySelectorAll('.stepper-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          input.value = (parseInt(input.value, 10) || 0) + parseInt(btn.dataset.step, 10);
+          clamp();
+        });
+      });
+    });
+
+    clamp();
+  }
+
   function init() {
     var prevBtn = document.getElementById('calendar-prev');
     var nextBtn = document.getElementById('calendar-next');
@@ -372,6 +427,7 @@
     document.addEventListener('jadranka:languagechange', render);
 
     initInquiryForm();
+    initGuestSteppers();
     loadAvailability().then(render);
   }
 

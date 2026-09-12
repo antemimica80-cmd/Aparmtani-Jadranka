@@ -306,8 +306,11 @@
     'calendar.avail.min_nights_msg': { hr: 'Za odabrani period minimalni boravak je {min} noćenja. Molimo odaberite dulji period.', en: 'For the selected period, the minimum stay is {min} nights. Please choose a longer period.' },
 
     'calendar.avail.inquiry_title': { hr: 'Pošaljite upit za odabrane datume', en: 'Send an Inquiry for These Dates' },
+    'calendar.avail.form_submit': { hr: 'Pošalji upit', en: 'Send Inquiry' },
     'calendar.avail.form_adults': { hr: 'Broj odraslih', en: 'Number of adults' },
     'calendar.avail.form_children': { hr: 'Broj djece', en: 'Number of children' },
+    'calendar.avail.guests_decrease': { hr: 'Smanji broj', en: 'Decrease' },
+    'calendar.avail.guests_increase': { hr: 'Povećaj broj', en: 'Increase' },
     'calendar.avail.form_phone': { hr: 'Telefon', en: 'Phone' },
     'calendar.avail.form_phone_ph': { hr: 'Vaš broj telefona', en: 'Your phone number' },
     'calendar.avail.form_message_ph': { hr: 'Napomene, posebni zahtjevi...', en: 'Notes, special requests...' },
