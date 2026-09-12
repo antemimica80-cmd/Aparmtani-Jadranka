@@ -514,7 +514,7 @@ section {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: 26px;
+  margin-bottom: 8px;
   font-size: 0.8rem;
   letter-spacing: 0.04em;
   color: var(--color-sea-deep);
@@ -526,6 +526,13 @@ section {
   height: 3px;
   border-radius: 50%;
   background-color: var(--color-sea);
+}
+
+.unit-card-rooms {
+  font-size: 0.85rem;
+  font-weight: 300;
+  color: var(--color-text-light);
+  margin-bottom: 26px;
 }
 
 .unit-card-actions {
@@ -1775,7 +1782,19 @@ body.modal-open {
 @media (max-width: 900px) {
   .units-grid {
     grid-template-columns: 1fr;
-    gap: 64px;
+    gap: 32px;
+  }
+
+  .unit-card {
+    background-color: var(--color-white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+    padding: 16px 16px 32px;
+  }
+
+  .unit-card-photo {
+    height: 220px;
+    margin-bottom: 20px;
   }
 
   .features-grid {

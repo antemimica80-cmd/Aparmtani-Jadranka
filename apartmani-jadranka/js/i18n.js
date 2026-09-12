@@ -37,6 +37,7 @@
     'home.units.stan_desc': { hr: 'Prostran, sa panoramskim pogledom na more i velikom terasom — idealan za obitelji i manje grupe.', en: 'Spacious, with panoramic sea views and a large terrace — ideal for families and small groups.' },
     'home.units.stan_meta1': { hr: '4 gosta', en: 'Sleeps 4' },
     'home.units.stan_meta2': { hr: 'Terasa 50 m²', en: '50 m² Terrace' },
+    'home.units.rooms': { hr: '2 spavaće sobe · 2 kupaonice', en: '2 bedrooms · 2 bathrooms' },
     'home.units.stan_link': { hr: 'Pogledajte detalje →', en: 'View Details →' },
     'home.units.cta': { hr: 'Pošalji upit', en: 'Send Inquiry' },
     'home.units.istok_desc': { hr: 'Prostran i moderan apartman od 80 m² u srcu Mimica, na koracima od plaže.', en: 'A spacious, modern 80 m² apartment in the heart of Mimice, steps from the beach.' },
