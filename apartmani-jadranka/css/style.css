@@ -1115,16 +1115,31 @@ body.lightbox-locked {
 }
 
 .calendar-day {
-  aspect-ratio: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  min-height: 50px;
   border: none;
   background: none;
-  border-radius: 50%;
+  border-radius: 10px;
   font-family: var(--font-body);
-  font-size: 0.88rem;
-  font-weight: 400;
   color: var(--color-text);
   cursor: pointer;
   transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.calendar-day .day-num {
+  font-size: 0.88rem;
+  font-weight: 400;
+}
+
+.calendar-day .day-price {
+  font-size: 0.6rem;
+  font-weight: 300;
+  letter-spacing: 0.01em;
+  color: var(--color-text-light);
 }
 
 .calendar-day.empty {
@@ -1137,13 +1152,20 @@ body.lightbox-locked {
 
 .calendar-day.unavailable {
   color: var(--color-sand-dark);
-  text-decoration: line-through;
   cursor: not-allowed;
+}
+
+.calendar-day.unavailable .day-num {
+  text-decoration: line-through;
 }
 
 .calendar-day.selected {
   background-color: var(--color-sea-deep);
   color: var(--color-white);
+}
+
+.calendar-day.selected .day-price {
+  color: rgba(255, 255, 255, 0.75);
 }
 
 .calendar-day.in-range {
@@ -1370,6 +1392,54 @@ body.lightbox-locked {
 .form-group textarea {
   resize: vertical;
   min-height: 90px;
+}
+
+.form-group .stepper {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.form-group .stepper input {
+  width: auto;
+  flex: 1;
+  text-align: center;
+  padding: 8px 2px;
+  cursor: default;
+}
+
+.stepper input::-webkit-outer-spin-button,
+.stepper input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.stepper input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.stepper-btn {
+  flex: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--color-sand-dark);
+  background: none;
+  color: var(--color-sea-deep);
+  font-size: 1.05rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
+}
+
+.stepper-btn:hover:not(:disabled) {
+  background-color: var(--color-sea-mist);
+  border-color: var(--color-sea);
+}
+
+.stepper-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
 }
 
 .form-status {
@@ -1836,6 +1906,14 @@ body.modal-open {
      steps a month at a time, same as the two-month desktop view. */
   .calendar-month-second {
     display: none;
+  }
+
+  .calendar-day {
+    min-height: 42px;
+  }
+
+  .calendar-day .day-price {
+    font-size: 0.54rem;
   }
 }
 

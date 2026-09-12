@@ -252,11 +252,19 @@
             <div class="form-row">
               <div class="form-group">
                 <label for="avail-adults" data-i18n="calendar.avail.form_adults">Number of adults</label>
-                <input type="number" id="avail-adults" name="adults" min="1" value="1" required>
+                <div class="stepper" data-stepper="adults">
+                  <button type="button" class="stepper-btn" data-step="-1" data-i18n-aria-label="calendar.avail.guests_decrease" aria-label="Decrease">&minus;</button>
+                  <input type="number" id="avail-adults" name="adults" min="1" max="4" value="1" readonly required>
+                  <button type="button" class="stepper-btn" data-step="1" data-i18n-aria-label="calendar.avail.guests_increase" aria-label="Increase">&plus;</button>
+                </div>
               </div>
               <div class="form-group">
                 <label for="avail-children" data-i18n="calendar.avail.form_children">Number of children</label>
-                <input type="number" id="avail-children" name="children" min="0" value="0">
+                <div class="stepper" data-stepper="children">
+                  <button type="button" class="stepper-btn" data-step="-1" data-i18n-aria-label="calendar.avail.guests_decrease" aria-label="Decrease">&minus;</button>
+                  <input type="number" id="avail-children" name="children" min="0" max="3" value="0" readonly>
+                  <button type="button" class="stepper-btn" data-step="1" data-i18n-aria-label="calendar.avail.guests_increase" aria-label="Increase">&plus;</button>
+                </div>
               </div>
             </div>
             <div class="form-group">
@@ -264,7 +272,7 @@
               <textarea id="avail-message" name="message" data-i18n-placeholder="calendar.avail.form_message_ph" placeholder="Notes, special requests..."></textarea>
             </div>
 
-            <button type="submit" class="btn btn-primary" data-i18n="contact.form_submit">Send Inquiry</button>
+            <button type="submit" class="btn btn-primary" data-i18n="calendar.avail.form_submit">Send Inquiry</button>
             <div id="availability-form-status" class="form-status" role="status"></div>
           </form>
         </aside>
