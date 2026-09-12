@@ -395,6 +395,45 @@ section {
   pointer-events: none;
 }
 
+/* PREVIEW ONLY — dark solid hero, no photo (see index.html comment). Not
+   yet approved; remove this block and the .hero-dark markup together if
+   the redesign isn't adopted. */
+.hero-dark {
+  background-color: #123a52;
+  min-height: 80vh;
+  padding: 140px 0 100px;
+}
+
+.hero-dark::after {
+  display: none;
+}
+
+.hero-actions-preview {
+  margin-top: 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.btn-primary-inverse {
+  background-color: var(--color-white);
+  color: #123a52;
+  border-color: var(--color-white);
+}
+
+.btn-primary-inverse:hover {
+  background-color: transparent;
+  color: var(--color-white);
+}
+
+.hero-note-preview {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
 .hero-content {
   position: relative;
   z-index: 2;
