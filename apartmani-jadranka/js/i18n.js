@@ -109,8 +109,9 @@
     'mimice.highlight1_desc': { hr: 'Šljunčane plaže s kristalno čistim morem, tik uz mjesto. Ponesite obuću za kupanje — povratak kući je uzbrdo.', en: 'Pebble beaches with crystal-clear water, right by the village. Bring water shoes — the walk back home is uphill.' },
     'mimice.highlight2_title': { hr: 'Staro selo Mimice', en: 'The Old Stone Village' },
     'mimice.highlight2_desc': { hr: 'Prošećite kamenim uličicama starog dijela mjesta, između kamenih kuća i pogleda na more koji se otvaraju iznenada.', en: 'Wander the stone lanes of the old village, between traditional houses and sudden glimpses of the sea.' },
-    'mimice.highlight3_title': { hr: 'Izlet brodom i riblji piknik', en: 'Boat Tour & Fish Picnic' },
-    'mimice.highlight3_desc': { hr: 'Cijeli dan na moru s tradicionalnim dalmatinskim ručkom od svježe ribe — izlet polazi direktno iz Mimica. Pitajte nas za detalje i rezervaciju.', en: 'A full day on the water with a traditional Dalmatian fish lunch — the tour departs right from Mimice. Ask us for details and booking.' },
+    'mimice.highlight3_title': { hr: 'Jelen – izlet brodom i riblji piknik', en: 'Jelen – Boat Tour & Fish Picnic' },
+    'mimice.highlight3_desc': { hr: 'Cijeli dan na moru s tradicionalnim dalmatinskim ručkom od svježe ribe, u organizaciji lokalne tvrtke Jelen — izlet polazi direktno iz Mimica.', en: 'A full day on the water with a traditional Dalmatian fish lunch, run by the local Jelen boat tours — departing right from Mimice.' },
+    'mimice.highlight3_link': { hr: 'Pogledajte ponudu →', en: 'View their tours →' },
     'mimice.highlight4_title': { hr: 'Pitajte lokalca', en: 'Ask a Local' },
     'mimice.highlight4_desc': { hr: 'Za restorane, trgovine ili izlete prema Omišu samo nas pitajte — rado ćemo prilagoditi preporuke vašem boravku.', en: 'For restaurants, shops, or trips toward Omiš, just ask us — we are happy to tailor suggestions to your stay.' },
 
