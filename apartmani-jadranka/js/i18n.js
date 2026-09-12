@@ -284,7 +284,6 @@
     'stan.cat.other.5': { hr: 'Osoblje dostupno 0-24', en: 'Staff available 24 hours' },
 
     // --- Stan: availability & pricing ---
-    'calendar.avail.cta': { hr: 'Provjeri dostupnost', en: 'Check Availability' },
     'calendar.avail.eyebrow': { hr: 'Rezervacija', en: 'Booking' },
     'calendar.avail.title': { hr: 'Dostupnost i cijene', en: 'Availability & Pricing' },
     'calendar.avail.subtitle': { hr: 'Odaberite datume dolaska i odlaska da vidite cijenu i dostupnost.', en: 'Select your check-in and check-out dates to see pricing and availability.' },
